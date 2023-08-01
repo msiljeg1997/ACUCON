@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+
+  
+h2, p {
+    font-size: 1.5vw !important;  // This will adjust the size of the text based on the viewport width
+}
+
+@media (max-width: 575px) {
+    h2 {
+        font-size: 3vw !important;  // This will make the h2 text larger when the screen is 575px or less
+    }
+    p {
+        font-size: 4vw !important;  // This will make the paragraph text slightly smaller than the h2 text on small screens
+    }
+}

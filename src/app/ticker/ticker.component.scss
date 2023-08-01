@@ -1,0 +1,28 @@
+@keyframes ticker {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .ticker {
+    padding: 30px;
+    width: 1025px;  // Set the width of the ticker
+    overflow: hidden;
+    background-color: #4848481f;
+    margin: auto;  // Center the ticker
+  }
+  
+  .ticker__items {
+    height: 20px;
+    display: flex;
+    animation: ticker var(--animation-duration, 10) linear infinite; 
+  }
+  
+  .ticker__item {
+    padding: 0 2rem;
+    white-space: nowrap;
+  }
+  

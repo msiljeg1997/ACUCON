@@ -1,0 +1,38 @@
+.logo-background {
+  background-color: #c4e5f9;
+}
+.logo {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block; 
+    width: 50px; 
+    height: auto; 
+  
+    @media (max-width: 991px) {
+      right: 15px;  // Adjust this to your desired position in smaller screens
+    }
+  
+    @media (min-width: 992px) {
+      position: static;
+      transform: none;
+      margin-left: auto;
+    }
+  }
+  
+.nav-width {
+  max-width: 100%;
+
+  @media (min-width: 992px) {
+    max-width: 85%;
+  }
+}
+
+.navbar-nav {
+  text-align: center;
+
+  @media (min-width: 992px) {
+    text-align: left; 
+  }
+}
