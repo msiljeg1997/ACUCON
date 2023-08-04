@@ -7,13 +7,15 @@ import { NaslovnaComponent } from './naslovna/naslovna.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TickerComponent } from './ticker/ticker.component';
+import { OKonferencijComponent } from './o-konferencij/o-konferencij.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NaslovnaComponent,
     NavBarComponent,
-    TickerComponent
+    TickerComponent,
+    OKonferencijComponent
   ],
   imports: [
     BrowserModule,

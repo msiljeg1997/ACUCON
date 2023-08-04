@@ -12,14 +12,14 @@
 
   
 h2, p {
-    font-size: 1.5vw !important;  // This will adjust the size of the text based on the viewport width
+    font-size: 0.98vw !important;  // This will adjust the size of the text based on the viewport width
 }
 
 @media (max-width: 575px) {
-    h2 {
+    p {
         font-size: 3vw !important;  // This will make the h2 text larger when the screen is 575px or less
     }
-    p {
+    h2 {
         font-size: 4vw !important;  // This will make the paragraph text slightly smaller than the h2 text on small screens
     }
 }
