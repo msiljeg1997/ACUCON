@@ -8,6 +8,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TickerComponent } from './ticker/ticker.component';
 import { OKonferencijComponent } from './o-konferencij/o-konferencij.component';
+import { PredavaciComponent } from './predavaci/predavaci.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {AccordionModule} from 'primeng/accordion';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -15,12 +20,18 @@ import { OKonferencijComponent } from './o-konferencij/o-konferencij.component';
     NaslovnaComponent,
     NavBarComponent,
     TickerComponent,
-    OKonferencijComponent
+    OKonferencijComponent,
+    PredavaciComponent,
+    HomeComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AccordionModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

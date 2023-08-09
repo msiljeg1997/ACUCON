@@ -1,0 +1,12 @@
+<p-accordion>
+    <p-accordionTab *ngFor="let participant of participants" header="{{participant.first_name}} {{participant.last_name}}">
+      <img [src]="participant.photo_name" alt="{{participant.first_name}} {{participant.last_name}}" class="participant-image">
+      <div class="participant-info">
+        <h3>{{ participant.title }}</h3>
+        <p>{{ participant.text1 }}</p>
+        <p>{{ participant.text2 }}</p>
+        <p>{{ participant.text3 }}</p>
+      </div>
+    </p-accordionTab>
+  </p-accordion>
+  
