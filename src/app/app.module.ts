@@ -12,6 +12,7 @@ import { PredavaciComponent } from './predavaci/predavaci.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {AccordionModule} from 'primeng/accordion';
 import { HomeComponent } from './home/home.component';
+import { RadioniceComponent } from './radionice/radionice.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     TickerComponent,
     OKonferencijComponent,
     PredavaciComponent,
-    HomeComponent
+    HomeComponent,
+    RadioniceComponent
 
   ],
   imports: [

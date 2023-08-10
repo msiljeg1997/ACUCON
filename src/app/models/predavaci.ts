@@ -1,4 +1,4 @@
-export interface Predavaci {
+export interface iPredavaci {
     id: number;
     first_name: string;
     last_name: string;

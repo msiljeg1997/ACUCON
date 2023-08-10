@@ -1,0 +1,12 @@
+<p-accordion>
+    <ng-container *ngFor="let radionica of radionice">
+      <p-accordionTab [header]="radionica.first_name + ' ' + radionica.last_name + ' - ' + radionica.theme" styleClass="dark-panel">
+        <div class="participant-info">
+          <h2>{{ radionica.first_name }} {{ radionica.last_name }}</h2>
+          <h3>{{ radionica.theme }}</h3>
+          <p>{{ radionica.description }}</p>
+        </div>
+      </p-accordionTab>
+    </ng-container>
+  </p-accordion>
+  

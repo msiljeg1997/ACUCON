@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Predavaci } from '../models/predavaci';
-import { PredavaciService } from '../api.service';
+import { iPredavaci } from '../models/predavaci';
+import { APIServis } from '../api.service';
 
 
 @Component({
@@ -10,9 +10,10 @@ import { PredavaciService } from '../api.service';
   encapsulation: ViewEncapsulation.None
 })
 export class PredavaciComponent implements OnInit {
-  participants: Predavaci[] = [];
+  participants: iPredavaci[] = [];
+  imageUrlBasePredavaci = 'https://wih.hr/beauty/public/predavaci_images/';
 
-  constructor(private predavaciService: PredavaciService) { }
+  constructor(private predavaciService: APIServis) { }
 
   ngOnInit(): void {
     this.loadParticipants();
@@ -45,5 +46,9 @@ export class PredavaciComponent implements OnInit {
     }
   }
   
+  getImageUrl(photoName: string): string {
+    return this.imageUrlBasePredavaci + photoName;
+  }
+
 }
   

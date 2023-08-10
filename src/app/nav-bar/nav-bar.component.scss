@@ -1,8 +1,10 @@
+/* nav-bar.component.scss */
+
+/* Your SCSS styles here */
 .logo-background {
   background-color: #c4e5f9;
 }
 
-  
 .nav-width {
   max-width: 100%;
 
@@ -15,12 +17,12 @@
   text-align: center;
 
   @media (min-width: 992px) {
-    text-align: left; 
+    text-align: left;
   }
 }
 
-.nav-item.active .nav-link {
-  color: #ffffff;
-  background-color: #000000;
-  border-radius:3ch
+nav ul li a.active {
+
+  font-weight: bold;
+  color: #ff0000; 
 }

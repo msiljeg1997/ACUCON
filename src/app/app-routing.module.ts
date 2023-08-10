@@ -2,17 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PredavaciComponent } from './predavaci/predavaci.component'; // Adjust the path if necessary
 import { HomeComponent } from './home/home.component';
+import { RadioniceComponent } from './radionice/radionice.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'predavaci',
-    component: PredavaciComponent
-  },
-  // You can add more routes as needed
+  { path: '', redirectTo: '/naslovna', pathMatch: 'full' }, 
+  { path: 'naslovna', component: HomeComponent },
+  { path: 'predavaci', component: PredavaciComponent },
+  { path: 'radionice', component: RadioniceComponent },
 ];
 
 @NgModule({

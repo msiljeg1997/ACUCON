@@ -1,33 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar position-relative" style="background-color: #0a6bbbb9;">
   <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#" >Naslovna</a>
+        <li class="nav-item" [ngClass]="{'active': activeRoute === '/naslovna'}">
+          <a class="nav-link" routerLink="/naslovna">Naslovna</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">O nama</a>
+        <li class="nav-item" [ngClass]="{'active': activeRoute === '/about'}">
+          <a class="nav-link" routerLink="/about">O nama</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" [ngClass]="{'active': activeRoute === '/predavaci'}">
           <a class="nav-link" routerLink="/predavaci">Predavači</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Radionica</a>
+        <li class="nav-item" [ngClass]="{'active': activeRoute === '/radionice'}">
+          <a class="nav-link" routerLink="/radionice">Radionice</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Kupovina</a>
+        <li class="nav-item" [ngClass]="{'active': activeRoute === '/kupovina'}">
+          <a class="nav-link" routerLink="/kupovina">Kupovina</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Smještaj</a>
+        <li class="nav-item" [ngClass]="{'active': activeRoute === '/smjestaj'}">
+          <a class="nav-link" routerLink="/smjestaj">Smještaj</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sudionici</a>
+        <li class="nav-item" [ngClass]="{'active': activeRoute === '/sudionici'}">
+          <a class="nav-link" routerLink="/sudionici">Sudionici</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sponzori</a>
+        <li class="nav-item" [ngClass]="{'active': activeRoute === '/sponzori'}">
+          <a class="nav-link" routerLink="/sponzori">Sponzori</a>
         </li>
       </ul>
     </div>
