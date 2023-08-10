@@ -9,6 +9,7 @@ import { APIServis } from '../api.service';
   styleUrls: ['./predavaci.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class PredavaciComponent implements OnInit {
   participants: iPredavaci[] = [];
   imageUrlBasePredavaci = 'https://wih.hr/beauty/public/predavaci_images/';
@@ -18,6 +19,7 @@ export class PredavaciComponent implements OnInit {
   ngOnInit(): void {
     this.loadParticipants();
   }
+
   loadParticipants() {
     this.predavaciService.getPredavaci().subscribe(
       (response: any) => {
@@ -32,6 +34,8 @@ export class PredavaciComponent implements OnInit {
       }
     );
   }
+
+  //error handling functions section
   
   private isApiResponseValid(response: any): boolean {
     return (

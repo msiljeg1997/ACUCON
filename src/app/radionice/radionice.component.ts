@@ -7,6 +7,7 @@ import { iRadionice } from '../models/radionice';
   templateUrl: './radionice.component.html',
   styleUrls: ['./radionice.component.scss']
 })
+
 export class RadioniceComponent implements OnInit {
   radionice: iRadionice[] = [];
 
@@ -30,6 +31,8 @@ export class RadioniceComponent implements OnInit {
       }
     );
   }
+
+  //error handling functions section
   
   private isApiResponseValid(response: any): boolean {
     return (

@@ -14,10 +14,12 @@ export class APIServis {
 
   constructor(private http: HttpClient) { }
 
+  //predavaci component servis
   getPredavaci(): Observable<iPredavaci[]> {
     return this.http.get<iPredavaci[]>(this.apiUrlPredavaci);
   }
 
+  //radionice component servis
   getRadionice(): Observable<iRadionice[]> {
     return this.http.get<iRadionice[]>(this.apiUrlRadionice);
   }
