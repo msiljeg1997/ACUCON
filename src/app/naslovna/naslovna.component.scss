@@ -1,7 +1,7 @@
 .img-responsive {
-    max-width: 1025px;  // Set the maximum width of the image to 1025px
-    width: 100%;  // Make the image take the full width of its container
-    height: auto; // Keep the aspect ratio of the image
+    max-width: 1025px; 
+    width: 100%;  
+    height: auto; 
   
     @media (max-width: 575px) {
       padding: 10px;

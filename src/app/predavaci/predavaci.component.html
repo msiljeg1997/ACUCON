@@ -1,14 +1,15 @@
 <p-accordion>
-  <p-accordionTab *ngFor="let participant of participants" header="{{participant.first_name}} {{participant.last_name}}">
+  <p-accordionTab *ngFor="let participant of participants"
+    header="{{participant.first_name}} {{participant.last_name}}">
     <div class="accordion-content">
       <div class="img-container">
         <img [src]="getImageUrl(participant.photo_name)">
       </div>
       <div class="info-container">
         <div class="name-container">
-         <h2>
-          {{participant.first_name}} {{participant.last_name}}
-        </h2> 
+          <h2>
+            {{participant.first_name}} {{participant.last_name}}
+          </h2>
         </div>
         <div class="participant-info">
           <div class="title-container">
