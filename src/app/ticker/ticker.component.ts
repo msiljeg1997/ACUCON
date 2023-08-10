@@ -8,11 +8,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 export class TickerComponent implements AfterViewInit {
 
   organizations = [
-    'assets/10.png',
-    'assets/11.png',
-    'assets/12.png',
-    'assets/13.png',
-    'assets/14.png',
+
 
 ];
 

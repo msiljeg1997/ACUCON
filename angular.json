@@ -29,7 +29,7 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/nova/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/ngx-spinner/animations/line-spin-clockwise-fade.css" 
+              "node_modules/ngx-spinner/animations/ball-atom.css" 
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

@@ -10,7 +10,6 @@ import { OKonferencijComponent } from './o-konferencij/o-konferencij.component';
 import { PredavaciComponent } from './predavaci/predavaci.component';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AccordionModule } from 'primeng/accordion';
-import { HomeComponent } from './home/home.component';
 import { RadioniceComponent } from './radionice/radionice.component';
 import { VinkoKlubAlkoholicaraComponent } from './vinko-klub-alkoholicara/vinko-klub-alkoholicara.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
@@ -26,7 +25,6 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
     TickerComponent,
     OKonferencijComponent,
     PredavaciComponent,
-    HomeComponent,
     RadioniceComponent,
     VinkoKlubAlkoholicaraComponent,
 

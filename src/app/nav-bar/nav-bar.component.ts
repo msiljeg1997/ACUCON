@@ -9,11 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class NavBarComponent {
   activeRoute: string = ''; 
 
-  constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.activeRoute = event.url;
-      }
-    });
+  constructor() {
+   
   }
 }
