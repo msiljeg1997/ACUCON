@@ -25,7 +25,7 @@ export class PredavaciComponent implements OnInit {
         if (this.isApiResponseValid(response)) {
           this.participants = response.data;
         } else {
-          console.error('API response daje error, ivek je nesto sjebao <3', response);
+          console.error('API response daje error', response);
         }
       },
       (error) => {
@@ -42,7 +42,7 @@ export class PredavaciComponent implements OnInit {
     if (error.status) {
       console.error(`API req failed sa statusom: ${error.status}:`, error);
     } else {
-      console.error('Dogodilo se sranje (error):', error);
+      console.error('Dogodio se error: (error):', error);
     }
   }
   
