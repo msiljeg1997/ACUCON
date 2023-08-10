@@ -12,6 +12,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {AccordionModule} from 'primeng/accordion';
 import { HomeComponent } from './home/home.component';
 import { RadioniceComponent } from './radionice/radionice.component';
+import { VinkoKlubAlkoholicaraComponent } from './vinko-klub-alkoholicara/vinko-klub-alkoholicara.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { RadioniceComponent } from './radionice/radionice.component';
     OKonferencijComponent,
     PredavaciComponent,
     HomeComponent,
-    RadioniceComponent
+    RadioniceComponent,
+    VinkoKlubAlkoholicaraComponent
 
   ],
   imports: [

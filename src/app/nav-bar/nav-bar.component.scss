@@ -1,5 +1,5 @@
 .logo-background {
-  background-color: #c4e5f9;
+  background-color: #007ad9;
 }
 
 .nav-width {
@@ -13,8 +13,13 @@
 .navbar-nav {
   text-align: center;
 
+
   @media (min-width: 992px) {
     text-align: left;
   }
+}
+a{
+  color: whitesmoke;
+  font-weight: 600;
 }
 
