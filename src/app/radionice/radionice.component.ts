@@ -17,17 +17,31 @@ export class RadioniceComponent implements OnInit {
   }
 
   loadRadionice() {
-    this.radioniceService.getRadionice().subscribe(
+    this.radioniceService.getPredavaci().subscribe(
       (response: any) => {
-        if (response.status === 'OK' && response.msg === 'request_success') {
+        if (this.isApiResponseValid(response)) {
           this.radionice = response.data;
         } else {
-          console.error('API response indicates an error:', response);
+          console.error('API response daje error, ivek je nesto sjebao <3', response);
         }
       },
-      error => {
-        console.error('Error fetching radionice:', error);
+      (error) => {
+        this.handleApiError(error);
       }
     );
   }
+
+
+  private isApiResponseValid(response: any): boolean {
+    return response.status === 'OK' && response.msg === 'request_success' && Array.isArray(response.data);
+  }
+  
+  private handleApiError(error: any): void {
+    if (error.status) {
+      console.error(`API req failed sa statusom: ${error.status}:`, error);
+    } else {
+      console.error('Dogodilo se sranje (error):', error);
+    }
+  }
+
 }
