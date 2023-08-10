@@ -18,33 +18,38 @@ export class PredavaciComponent implements OnInit {
   ngOnInit(): void {
     this.loadParticipants();
   }
-  
   loadParticipants() {
     this.predavaciService.getPredavaci().subscribe(
       (response: any) => {
         if (this.isApiResponseValid(response)) {
           this.participants = response.data;
         } else {
-          console.error('API response daje error', response);
+          this.handleApiError('Invalid API response', response);
         }
       },
       (error) => {
-        this.handleApiError(error);
+        this.handleApiError('API request failed', error);
       }
     );
   }
   
   private isApiResponseValid(response: any): boolean {
-    return response.status === 'OK' && response.msg === 'request_success' && Array.isArray(response.data);
+    return (
+      response &&
+      response.status === 'OK' &&
+      response.msg === 'request_success' &&
+      Array.isArray(response.data)
+    );
   }
   
-  private handleApiError(error: any): void {
-    if (error.status) {
-      console.error(`API req failed sa statusom: ${error.status}:`, error);
-    } else {
-      console.error('Dogodio se error: (error):', error);
-    }
+  private handleApiError(message: string, error: any): void {
+    const errorMessage = error.status
+      ? `API request failed with status ${error.status}`
+      : 'An error occurred';
+  
+    console.error(`${message}:`, errorMessage, error);
   }
+  
   
   getImageUrl(photoName: string): string {
     return this.imageUrlBasePredavaci + photoName;
