@@ -1,13 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar position-relative" style="background-color: #007ad9;">
   <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+    <div class="collapse navbar-collapse" [ngClass]="{'hide': isNavbarHidden, 'show': !isNavbarHidden && !isNavbarCollapsed}" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/naslovna" routerLinkActive="active" (click)="showSpinner()" >Naslovna</a>
+          <a class="nav-link" routerLink="/naslovna" routerLinkActive="active" (click)="showSpinner(); closeNavbar()">Naslovna</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/about" routerLinkActive="active">O nama</a>

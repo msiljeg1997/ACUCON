@@ -10,6 +10,7 @@
   }
 }
 
+
 .navbar-nav {
   text-align: center;
 
@@ -23,3 +24,23 @@ a{
   font-weight: 600;
 }
 
+.navbar-nav {
+  text-align: left;
+
+  @media (min-width: 992px) {
+    text-align: left;
+  }
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  margin-right: 1rem;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 15px; 
+}
+
+.collapse.navbar-collapse {
+  justify-content: flex-start;
+}
