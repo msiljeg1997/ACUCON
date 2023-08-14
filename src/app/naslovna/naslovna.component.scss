@@ -1,9 +1,21 @@
 .img-responsive {
-    max-width: 1025px; 
-    width: 100%;  
-    height: auto; 
-  
-    @media (max-width: 575px) {
-      padding: 10px;
-    }
+  max-width: 1025px; 
+  width: 100%;  
+  height: auto; 
+
+  @media (max-width: 575px) {
+    padding: 10px;
   }
+}
+
+.background-image {
+  background-image: url('/assets/AMADRIAblur.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+h2, p{
+  color: whitesmoke;
+  font-weight: bolder;
+}
