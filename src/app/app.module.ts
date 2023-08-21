@@ -11,9 +11,9 @@ import { PredavaciComponent } from './predavaci/predavaci.component';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AccordionModule } from 'primeng/accordion';
 import { RadioniceComponent } from './radionice/radionice.component';
-import { VinkoKlubAlkoholicaraComponent } from './vinko-klub-alkoholicara/vinko-klub-alkoholicara.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -25,8 +25,7 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
     TickerComponent,
     OKonferencijComponent,
     PredavaciComponent,
-    RadioniceComponent,
-    VinkoKlubAlkoholicaraComponent,
+    RadioniceComponent
 
 
   ],
@@ -44,8 +43,11 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
   ],
 
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule { }
