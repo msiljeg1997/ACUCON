@@ -61,3 +61,6 @@ export class PredavaciComponent implements OnInit {
 
 }
   
+
+
+// notes

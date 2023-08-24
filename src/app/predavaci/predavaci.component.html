@@ -1,28 +1,27 @@
- <h4 style="display: flex; justify-content: center; font-style: italic; font-weight: bold; font-size: large; margin-top: 50px;">NAŠI PONOSNI PREDAVAČI</h4>
+<h4
+  style="display: flex; justify-content: center; font-style: italic; font-weight: bold; font-size: large; margin-top: 30px; margin-bottom: 20px;">
+  PREDAVAČI</h4>
 <p-accordion>
-  <p-accordionTab *ngFor="let participant of participants"
-    header="{{participant.first_name}} {{participant.last_name}}">
-    <div class="accordion-content">
-      <div class="img-container">
-        <img [src]="getImageUrl(participant.photo_name)">
+  <p-accordionTab *ngFor="let participant of participants">
+    <ng-template pTemplate="header">
+      <div class="accordion-header">
+        {{participant.title}} {{participant.first_name}} {{participant.last_name}} - {{participant.theme}}
       </div>
-      <div class="info-container">
-        <div class="name-container">
-          <h2>
-            {{participant.first_name}} {{participant.last_name}}
-          </h2>
+    </ng-template>
+    <div id="container p-accordion-content">
+      <div id="floated" class="imageContainer"> <img [src]="getImageUrl(participant.photo_name)"></div>
+      <div class="textParticipant">
+        <div class="nasloviText">
+          <h2>{{participant.title}} {{participant.first_name}} {{participant.last_name}}</h2>
+          <span class="tema nasloviText">{{participant.theme}}</span>
         </div>
-        <div class="participant-info">
-          <div class="title-container">
-            <h3>{{ participant.title }}</h3>
-          </div>
-          <div class="text-container">
-            <p>{{ participant.text1 }}</p>
-            <p>{{ participant.text2 }}</p>
-            <p>{{ participant.text3 }}</p>
-          </div>
+        <div class="nasloviText">
+          <p class="textParticipant1">{{participant.text1}}</p>
+          <p class="textParticipant2">{{participant.text2}}</p>
+          <p class="textParticipant3">{{participant.text3}}</p>
         </div>
       </div>
     </div>
   </p-accordionTab>
+  
 </p-accordion>
