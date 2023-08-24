@@ -12,7 +12,7 @@
 
   
 h2, p{
-    font-size: 1.5vw !important;  //kad je full
+    font-size: 1.2vw !important;  //kad je full
 }
 h3 {
     font-size: 1.5vw !important;  // kad je full
@@ -36,8 +36,36 @@ h3 {
     }
 }
 
-@media screen and (min-width: 1801px) {
+
+  @media screen and (min-width: 1650px) {
     h2, p, h3 {
-      font-size: 1vw !important;
+      font-size: 0.8vw !important;
+    }
+  }
+
+  @media (max-width: 1073px) {
+    h2, h3, p {
+      font-size: 1.5vw !important;
+    }
+  }
+
+  @media (max-width: 735px) {
+    h2, h3, p {
+      font-size: 2.2vw !important;
+    }
+  }
+  @media (max-width: 630px) {
+    h2, h3, p {
+      font-size: 2.8vw !important;
+    }
+  }
+  @media (max-width: 450px) {
+    h2, h3, p {
+      font-size: 3.6vw !important;
+    }
+  }
+  @media (max-width: 385px) {
+    h2, h3, p {
+      font-size: 3.7vw !important;
     }
   }
