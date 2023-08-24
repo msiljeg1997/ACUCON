@@ -34,14 +34,14 @@
   }
 
   .tema {
-    display: block; /* Place theme on its own row */
-    margin-top: 10px; /* Add spacing between theme and other content */
+    display: block; 
+    margin-top: 10px;
     margin-bottom: 20px;
   }
 
   @media (max-width: 767px) {
     .tema {
-      margin-top: 0; /* Reset spacing for smaller screens */
+      margin-top: 0;
     }
   }
 }
