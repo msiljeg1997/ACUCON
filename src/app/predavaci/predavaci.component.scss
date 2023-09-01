@@ -26,11 +26,12 @@
 .textParticipant {
   margin: 10px;
   text-align: initial;
+      text-align: justify;
 
   .nasloviText {
     display: block;
     margin-bottom: 10px;
-    text-align: justify;
+
   }
 
   .tema {
@@ -67,4 +68,36 @@ h3{
 }
 p{
   font-weight: 100;
+}
+
+.acccordionHeaderText {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.text{
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+/* Small screens (phones) */
+@media screen and (max-width: 600px) {
+  .text {
+    padding: 5px; 
+  }
+}
+
+/* Medium screens (tablets) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .text {
+    padding: 15px; 
+  }
+}
+
+/* Large screens (desktops) */
+@media screen and (min-width: 1025px) {
+  .text {
+    padding: 10px 35px; 
+  }
 }

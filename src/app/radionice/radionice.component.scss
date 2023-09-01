@@ -13,3 +13,35 @@ h2{
 .text{
   text-align: justify;
 }
+
+.acccordionHeaderText {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.text{
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+/* Small screens (phones) */
+@media screen and (max-width: 600px) {
+  .text, .participant-info {
+    padding: 5px; 
+  }
+}
+
+/* Medium screens (tablets) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .text, .participant-info {
+    padding: 15px; 
+  }
+}
+
+/* Large screens (desktops) */
+@media screen and (min-width: 1025px) {
+  .text, .participant-info {
+    padding: 10px 35px; 
+  }
+}
