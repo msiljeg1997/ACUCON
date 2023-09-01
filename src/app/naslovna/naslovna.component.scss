@@ -14,11 +14,13 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;
-  height: 100vh; 
+  height: auto; 
 }
 h2, p{
-  color: whitesmoke;
+  color:#fefefd;
   font-weight: bolder;
+  margin-bottom: 15px;
+
 }
 
 
@@ -28,7 +30,7 @@ h2, p{
   display: flex;
   align-items: center;
   margin-left: 10px;
-  background-color:#007bd9b4;
+  background: linear-gradient(to top, #01609a, #a0b0bd);
 
   @media (max-width: 575px) {
     margin-top: 30px !important;
@@ -37,6 +39,6 @@ h2, p{
   }
 
   @media (min-width: 576px) {
-    margin-top: 150px !important;
+    margin-top: 45px !important;
   }
 }
