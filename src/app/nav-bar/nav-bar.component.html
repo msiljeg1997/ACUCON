@@ -6,16 +6,16 @@
     <div class="collapse navbar-collapse" [ngClass]="{'hide': isNavbarHidden, 'show': !isNavbarHidden && !isNavbarCollapsed}" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/naslovna" routerLinkActive="active" (click)="showSpinner(); closeNavbar()" style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight: 500;">NASLOVNA</a>
+          <a class="nav-link" routerLink="/naslovna" routerLinkActive="active" (click)="showSpinner(); closeNavbar()" style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight: 500;">{{'homepage' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about" routerLinkActive="active" style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight: 500;">O KONGRESU</a>
+          <a class="nav-link" routerLink="/about" routerLinkActive="active" style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight: 500;">{{'about' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/predavaci" routerLinkActive="active" style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight: 500;">PREDAVAČI</a>
+          <a class="nav-link" routerLink="/predavaci" routerLinkActive="active" style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight: 500;">{{'lecturers' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/radionice" routerLinkActive="active" style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight: 500;">RADIONICE</a>
+          <a class="nav-link" routerLink="/radionice" routerLinkActive="active" style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight: 500;">{{'workshops' | translate}}</a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/kupovina" routerLinkActive="active">Kupovina</a>

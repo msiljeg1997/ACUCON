@@ -9,19 +9,27 @@ import { iRadionice } from './models/radionice';
   providedIn: 'root'
 })
 export class APIServis {
-  private apiUrlPredavaci = 'https://www.wih.hr/beauty/public/api/get_kongres_predavaci';
-  private apiUrlRadionice = 'https://www.wih.hr/beauty/public/api/get_kongres_radionice';
+  private apiUrlPredavaciENG = 'https://www.wih.hr/beauty/public/api/get_kongres_predavaci/eng';
+  private apiUrlPredavaciHRV = 'https://www.wih.hr/beauty/public/api/get_kongres_predavaci/hrv';
+  private apiUrlRadioniceENG = 'https://www.wih.hr/beauty/public/api/get_kongres_radionice/eng';
+  private apiUrlRadioniceHRV = 'https://www.wih.hr/beauty/public/api/get_kongres_radionice/hrv';
 
   constructor(private http: HttpClient) { }
 
   //predavaci component servis
-  getPredavaci(): Observable<iPredavaci[]> {
-    return this.http.get<iPredavaci[]>(this.apiUrlPredavaci);
+  getPredavaciENG(): Observable<iPredavaci[]> {
+    return this.http.get<iPredavaci[]>(this.apiUrlPredavaciENG);
+  }
+  getPredavaciHRV(): Observable<iPredavaci[]> {
+    return this.http.get<iPredavaci[]>(this.apiUrlPredavaciHRV);
   }
 
   //radionice component servis
-  getRadionice(): Observable<iRadionice[]> {
-    return this.http.get<iRadionice[]>(this.apiUrlRadionice);
+  getRadioniceENG(): Observable<iRadionice[]> {
+    return this.http.get<iRadionice[]>(this.apiUrlRadioniceENG);
+  }
+  getRadioniceHRV(): Observable<iRadionice[]> {
+    return this.http.get<iRadionice[]>(this.apiUrlRadioniceHRV);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APIServis } from '../api.service';
 import { iRadionice } from '../models/radionice';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-radionice',
@@ -11,14 +12,19 @@ import { iRadionice } from '../models/radionice';
 export class RadioniceComponent implements OnInit {
   radionice: iRadionice[] = [];
 
-  constructor(private radioniceService: APIServis ) {}
+  constructor(private radioniceService: APIServis, private translate: TranslateService ) {}
 
-  ngOnInit(): void {
-    this.loadRadionice();
+  ngOnInit() {
+    const currentLang = this.translate.currentLang;
+       if (currentLang === 'eng') {
+      this.loadRadioniceENG();
+    } else {
+      this.loadRadioniceHRV();
+    }
   }
 
-  loadRadionice() {
-    this.radioniceService.getRadionice().subscribe(
+  loadRadioniceENG() {
+    this.radioniceService.getRadioniceENG().subscribe(
       (response: any) => {
         if (this.isApiResponseValid(response)) {
           this.radionice = response.data;
@@ -28,6 +34,20 @@ export class RadioniceComponent implements OnInit {
       },
       (error) => {
         this.handleApiError('API request failed', error);
+      }
+    );
+  }
+  loadRadioniceHRV() {
+    this.radioniceService.getRadioniceHRV().subscribe(
+      (response: any) => {
+        if (this.isApiResponseValid(response)) {
+          this.radionice = response.data;
+        } else {
+          this.handleApiError('Nevažeći odgovor API-ja', response);
+        }
+      },
+      (error) => {
+        this.handleApiError('Neuspjeh zahtjeva API-ja', error);
       }
     );
   }

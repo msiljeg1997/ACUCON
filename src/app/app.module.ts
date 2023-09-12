@@ -14,6 +14,8 @@ import { RadioniceComponent } from './radionice/radionice.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 
 
@@ -36,7 +38,14 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     HttpClientModule,
     AccordionModule,
     AppRoutingModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   exports: [
     NgxSpinnerModule
@@ -51,3 +60,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
   ]
 })
 export class AppModule { }
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

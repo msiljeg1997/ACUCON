@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BusyService } from '../busy.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,7 +16,12 @@ export class NavBarComponent {
 
 
 
-  constructor(private busyService: BusyService, private router: Router) {}
+  constructor(private busyService: BusyService, private router: Router, public translate: TranslateService) {
+  }
+
+  switchLang(lang: string) {
+    this.translate.use(lang);
+  }
 
     //umjetni spinner koj ide na click u navbaru --> dodatak AfterView u naslovnoj.ts => 
   //to sam radio posto interceptor radi na http req a u naslovnoj nema http req pa nije bacao spinner, pa radi konzistencije

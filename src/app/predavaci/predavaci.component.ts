@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { iPredavaci } from '../models/predavaci';
 import { APIServis } from '../api.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -14,14 +15,20 @@ export class PredavaciComponent implements OnInit {
   participants: iPredavaci[] = [];
   imageUrlBasePredavaci = 'https://wih.hr/beauty/public/predavaci_images/';
 
-  constructor(private predavaciService: APIServis) { }
+  constructor(private predavaciService: APIServis, private translate: TranslateService) { }
 
-  ngOnInit(): void {
-    this.loadParticipants();
+  ngOnInit() {
+    const currentLang = this.translate.currentLang;
+    if (currentLang === 'eng') {
+      this.loadParticipantsENG();
+    } else {
+      this.loadParticipantsHRV();
+    }
   }
 
-  loadParticipants() {
-    this.predavaciService.getPredavaci().subscribe(
+
+  loadParticipantsENG() {
+    this.predavaciService.getPredavaciENG().subscribe(
       (response: any) => {
         if (this.isApiResponseValid(response)) {
           this.participants = response.data;
@@ -31,6 +38,21 @@ export class PredavaciComponent implements OnInit {
       },
       (error) => {
         this.handleApiError('API request failed', error);
+      }
+    );
+  }
+
+  loadParticipantsHRV() {
+    this.predavaciService.getPredavaciHRV().subscribe(
+      (response: any) => {
+        if (this.isApiResponseValid(response)) {
+          this.participants = response.data;
+        } else {
+          this.handleApiError('Nevažeći odgovor API-ja', response);
+        }
+      },
+      (error) => {
+        this.handleApiError('Neuspjeh zahtjeva API-ja', error);
       }
     );
   }
