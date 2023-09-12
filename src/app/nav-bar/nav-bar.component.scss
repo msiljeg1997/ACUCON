@@ -1,3 +1,4 @@
+/* Add this CSS to your global or component-specific CSS file */
 .logo-background {
   background-color: #007ad9;
 }
@@ -10,26 +11,34 @@
   }
 }
 
-
 .navbar-nav {
   text-align: center;
+}
 
-
-  @media (min-width: 992px) {
-    text-align: left;
+@media (min-width: 992px) {
+  .navbar-nav {
+    text-align: center; /* Center items horizontally */
+    display: flex;
+    justify-content: space-between; /* Add space between items */
+    align-items: center; /* Vertically center items */
   }
 }
-a{
+
+.container-main {
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  flex-direction: column; /* Stack items vertically in a column */
+  width: 100%; /* Adjust width as needed */
+}
+
+.container-main .navbar-nav {
+  margin: 0; /* Remove the default margin */
+}
+
+a {
   color: whitesmoke;
   font-weight: 600;
-}
-
-.navbar-nav {
-  text-align: left;
-
-  @media (min-width: 992px) {
-    text-align: left;
-  }
 }
 
 .navbar-toggler {
@@ -38,9 +47,24 @@ a{
 }
 
 .navbar-nav .nav-item {
-  margin-right: 15px; 
+  margin-right: 15px;
+  display: inline-block;
 }
 
 .collapse.navbar-collapse {
   justify-content: flex-start;
+}
+
+/* Language Control Styles */
+.language-control {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  display: inline-block;
+}
+
+/* Adjust the button size to make it smaller */
+.form-control-sm {
+  width: 100px;
 }
