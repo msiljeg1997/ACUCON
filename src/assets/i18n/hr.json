@@ -1,9 +1,15 @@
 {
     "homepage": "NASLOVNA",
-    "about": "O KONGRESU",
+    "about": "KONGRES",
     "lecturers": "PREDAVAĆI",
     "lecturersTItle":"PREDAVAČI/CE I TEME",
     "workshops": "RADIONICE",
-    "workshopsTitle": "INFORMACIJE O RADIONICAMA"
-
+    "workshopsTitle": "INFORMACIJE O RADIONICAMA",
+    "aboutTitle":"INFORMACIJE O KONGRESU",
+    "about1":"S velikim ponosom najavljujemo održavanje 1. Hrvatskog kongresa akupunkture s međunarodnim sudjelovanjem u terminu od 19-21 travnja 2024. godine.",
+    "about2":"Kongres će se održati u Kraljici Jadrana, predivnoj Opatiji, u kongresnoj dvorani Conference park 25/7 u sklopu Amadria parka.",
+    "about3":"Hrvatsko društvo za Akupunkturu u suradnji s organizacijskim timom i drugim organizacijama, uspjelo je, za Vas organizirati ovaj kongres, gdje će svoja zanimljiva predavanja, održati stručnjaci i stručnjakinje iz 13 zemalja, s 2 kontinenta ",
+    "about4":"Održati će se radionice za do 40 polaznika iz akupunkturnih tehnika te komplementarnih tehnika liječenja, gdje će se predstaviti nove metode, a i Renomirani stručnjaci i stručnjakinje će s Vama dijeliti svoje znanje. Sve radionice će se održavati na pacijentima s ciljem boljeg prenošenja znanja.",
+    "about5":"Panel diskusija će se održavati svaki dan nakon predavanja u trajanju od 1h kako bi mogli svoja pitanja, mišljenja i ideje razmijeniti s predavačima.",
+    "about6":"Sve predavače i predavačice i njihove teme, te teme radionica, možete vidjeti na karticama predavači i radionice."
 }

@@ -6,7 +6,6 @@ import { NaslovnaComponent } from './naslovna/naslovna.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TickerComponent } from './ticker/ticker.component';
-import { OKonferencijComponent } from './o-konferencij/o-konferencij.component';
 import { PredavaciComponent } from './predavaci/predavaci.component';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AccordionModule } from 'primeng/accordion';
@@ -16,6 +15,7 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { OkonferencijComponent } from './okonferencij/okonferencij.component';
 
 
 
@@ -25,9 +25,9 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     NaslovnaComponent,
     NavBarComponent,
     TickerComponent,
-    OKonferencijComponent,
     PredavaciComponent,
-    RadioniceComponent
+    RadioniceComponent,
+    OkonferencijComponent
 
 
   ],
