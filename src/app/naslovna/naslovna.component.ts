@@ -21,7 +21,7 @@ export class NaslovnaComponent implements AfterViewInit {
   getImagePath(): string {
 
     const currentLang = this.translate.currentLang;
-
+    
     const imagePaths: { [key: string]: string } = {
       en: 'assets/ACU.jpg',
       hr: 'assets/ACUHRV.jpg'
