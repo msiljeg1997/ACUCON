@@ -29,6 +29,6 @@ export class NaslovnaComponent implements AfterViewInit {
     };
 
     // Return the appropriate image path based on the current language
-    return imagePaths[currentLang];
+    return imagePaths[currentLang] || 'assets/ACU.jpg'; 
   }
 }
