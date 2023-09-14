@@ -19,16 +19,14 @@ export class NaslovnaComponent implements AfterViewInit {
   }
 
   getImagePath(): string {
-    // Get the current language from the TranslateService
+
     const currentLang = this.translate.currentLang;
 
-    // Define the image paths based on language
     const imagePaths: { [key: string]: string } = {
       en: 'assets/ACU.jpg',
       hr: 'assets/ACUHRV.jpg'
     };
 
-    // Return the appropriate image path based on the current language
     return imagePaths[currentLang] || 'assets/ACU.jpg'; 
   }
 }
