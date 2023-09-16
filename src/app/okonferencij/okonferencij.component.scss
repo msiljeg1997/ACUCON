@@ -7,10 +7,10 @@
     
 }
 p.aboutText br {
-    margin-bottom: 20px; /* Adjust this value to control the spacing */
-    display: block; /* Ensure <br> elements are treated as block-level elements */
-    content: ""; /* Optional: for pseudo-element clearing */
-    clear: both; /* Optional: for pseudo-element clearing */
+    margin-bottom: 20px;
+    display: block; 
+    content: ""; 
+    clear: both; 
   }
   h4{
     font-size: 30px;

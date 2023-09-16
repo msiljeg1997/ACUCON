@@ -6,9 +6,9 @@
 }
 
 .custom-col {
-    background-color: #FF5733; /* Set your desired background color */
-    color: #341f1f; /* Set your desired text color */
-    margin: 10px; /* Adjust the spacing as needed */
+    background-color: #FF5733; 
+    color: #341f1f;
+    margin: 10px; 
     height: 60vh;
     width: 30vh;
     padding: 10px;
@@ -18,22 +18,22 @@
 
   @media (max-width: 767px) {
     .custom-col {
-      height: 480px; /* Adjust the height as needed */
-      line-height: 80px; /* Center content vertically within the smaller column */
+      height: 480px; 
+      line-height: 80px;
     }
   }
   
   .circle-number {
-    width: 50px; /* Increase the width to make it bigger */
-    height: 50px; /* Increase the height to make it bigger */
-    background-color: #007bff; /* Replace with your desired background color */
+    width: 50px;
+    height: 50px; 
+    background-color: #007bff; 
     color: white;
     border-radius: 50%;
     text-align: center;
-    line-height: 50px; /* Match the height for vertical centering */
+    line-height: 50px; 
     font-weight: bold;
     position: relative;
-    top: -25px; /* Adjust this value to vertically position the circle as needed */
+    top: -25px; 
     left: 50%;
     transform: translateX(-50%);
   }
