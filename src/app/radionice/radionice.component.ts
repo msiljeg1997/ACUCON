@@ -15,16 +15,11 @@ export class RadioniceComponent implements OnInit {
   constructor(private radioniceService: APIServis, private translate: TranslateService ) {}
 
   ngOnInit() {
-    const currentLang = this.translate.currentLang;
-       if (currentLang === 'eng') {
-      this.loadRadioniceENG();
-    } else {
-      this.loadRadioniceHRV();
-    }
+this.loadRadionice();
   }
 
-  loadRadioniceENG() {
-    this.radioniceService.getRadioniceENG().subscribe(
+  loadRadionice() {
+    this.radioniceService.getRadionice(this.translate.currentLang).subscribe(
       (response: any) => {
         if (this.isApiResponseValid(response)) {
           this.radionice = response.data;
@@ -37,20 +32,7 @@ export class RadioniceComponent implements OnInit {
       }
     );
   }
-  loadRadioniceHRV() {
-    this.radioniceService.getRadioniceHRV().subscribe(
-      (response: any) => {
-        if (this.isApiResponseValid(response)) {
-          this.radionice = response.data;
-        } else {
-          this.handleApiError('Nevažeći odgovor API-ja', response);
-        }
-      },
-      (error) => {
-        this.handleApiError('Neuspjeh zahtjeva API-ja', error);
-      }
-    );
-  }
+
 
   //error handling functions section
   

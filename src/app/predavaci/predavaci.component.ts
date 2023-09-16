@@ -18,17 +18,12 @@ export class PredavaciComponent implements OnInit {
   constructor(private predavaciService: APIServis, private translate: TranslateService) { }
 
   ngOnInit() {
-    const currentLang = this.translate.currentLang;
-    if (currentLang === 'eng') {
-      this.loadParticipantsENG();
-    } else {
-      this.loadParticipantsHRV();
-    }
+this.loadParticipants();
   }
 
 
-  loadParticipantsENG() {
-    this.predavaciService.getPredavaciENG().subscribe(
+  loadParticipants() {
+    this.predavaciService.getPredavaci(this.translate.currentLang).subscribe(
       (response: any) => {
         if (this.isApiResponseValid(response)) {
           this.participants = response.data;
@@ -42,20 +37,6 @@ export class PredavaciComponent implements OnInit {
     );
   }
 
-  loadParticipantsHRV() {
-    this.predavaciService.getPredavaciHRV().subscribe(
-      (response: any) => {
-        if (this.isApiResponseValid(response)) {
-          this.participants = response.data;
-        } else {
-          this.handleApiError('Nevažeći odgovor API-ja', response);
-        }
-      },
-      (error) => {
-        this.handleApiError('Neuspjeh zahtjeva API-ja', error);
-      }
-    );
-  }
 
   //error handling functions section
   
