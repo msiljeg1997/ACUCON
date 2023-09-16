@@ -1,0 +1,40 @@
+
+
+.col {
+    height: 40vh;
+    padding: 10px;
+}
+
+.custom-col {
+    background-color: #FF5733; /* Set your desired background color */
+    color: #341f1f; /* Set your desired text color */
+    margin: 10px; /* Adjust the spacing as needed */
+    height: 60vh;
+    width: 30vh;
+    padding: 10px;
+    box-sizing: border-box;
+    
+  }
+
+  @media (max-width: 767px) {
+    .custom-col {
+      height: 480px; /* Adjust the height as needed */
+      line-height: 80px; /* Center content vertically within the smaller column */
+    }
+  }
+  
+  .circle-number {
+    width: 50px; /* Increase the width to make it bigger */
+    height: 50px; /* Increase the height to make it bigger */
+    background-color: #007bff; /* Replace with your desired background color */
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px; /* Match the height for vertical centering */
+    font-weight: bold;
+    position: relative;
+    top: -25px; /* Adjust this value to vertically position the circle as needed */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  

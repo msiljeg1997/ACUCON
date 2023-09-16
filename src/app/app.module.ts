@@ -16,6 +16,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { OkonferencijComponent } from './okonferencij/okonferencij.component';
+import { ShopitemComponent } from './shopitem/shopitem.component';
+import { KupovinaComponent } from './kupovina/kupovina.component';
+
 
 
 
@@ -27,7 +30,10 @@ import { OkonferencijComponent } from './okonferencij/okonferencij.component';
     TickerComponent,
     PredavaciComponent,
     RadioniceComponent,
-    OkonferencijComponent
+    OkonferencijComponent,
+    ShopitemComponent,
+    KupovinaComponent
+    
 
 
   ],
@@ -48,7 +54,8 @@ import { OkonferencijComponent } from './okonferencij/okonferencij.component';
     })
   ],
   exports: [
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ShopitemComponent
   ],
 
   providers: [

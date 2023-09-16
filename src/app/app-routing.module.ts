@@ -4,6 +4,7 @@ import { PredavaciComponent } from './predavaci/predavaci.component'; // Adjust 
 import { RadioniceComponent } from './radionice/radionice.component';
 import { NaslovnaComponent } from './naslovna/naslovna.component';
 import { OkonferencijComponent } from './okonferencij/okonferencij.component';
+import { KupovinaComponent } from './kupovina/kupovina.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/naslovna', pathMatch: 'full' }, 
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'predavaci', component: PredavaciComponent },
   { path: 'radionice', component: RadioniceComponent },
   { path: 'about', component: OkonferencijComponent },
+  { path: 'shop', component: KupovinaComponent },
 ];
 
 @NgModule({
