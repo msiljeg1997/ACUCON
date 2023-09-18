@@ -9,17 +9,25 @@ import { iRadionice } from './models/radionice';
   providedIn: 'root'
 })
 export class APIServis {
-  private apiUrlPredavaci = 'https://www.wih.hr/beauty/public/api/get_kongres_predavaci/';
-  private apiUrlRadionice = 'https://www.wih.hr/beauty/public/api/get_kongres_radionice/';
+  private apiUrlPredavaci = 'https://www.wih.hr/beauty/public/api/get_kongres_predavaci'; //dodaj nakon svake /
+  private apiUrlRadionice = 'https://www.wih.hr/beauty/public/api/get_kongres_radionice';
 
 
   constructor(private http: HttpClient) { }
 
 
+  // getPredavaci($language : string): Observable<iPredavaci[]> {
+  //   return this.http.get<iPredavaci[]>(this.apiUrlPredavaci + $language);
+  // }
+  // getRadionice($language: string): Observable<iPredavaci[]> {
+  //   return this.http.get<iPredavaci[]>(this.apiUrlRadionice + $language);
+  // }
+
+
   getPredavaci($language : string): Observable<iPredavaci[]> {
-    return this.http.get<iPredavaci[]>(this.apiUrlPredavaci + $language);
+    return this.http.get<iPredavaci[]>(this.apiUrlPredavaci );
   }
   getRadionice($language: string): Observable<iPredavaci[]> {
-    return this.http.get<iPredavaci[]>(this.apiUrlRadionice + $language);
+    return this.http.get<iPredavaci[]>(this.apiUrlRadionice );
   }
 }

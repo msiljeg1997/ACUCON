@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { iRadionice } from '../models/radionice';
 import { APIServis } from '../api.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,49 +8,17 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './shopitem.component.html',
   styleUrls: ['./shopitem.component.scss']
 })
-export class ShopitemComponent implements OnInit {
-  radionice: iRadionice[] = [];
-
-  constructor(private radioniceService: APIServis, private translate: TranslateService ) {}
+export class ShopitemComponent  {
+  @Input() radionice?: iRadionice;
   
-  ngOnInit(): void {
-  this.loadRadionice();
+
+  constructor(private translate: TranslateService ) {
+    console.log('dal radi u child', this.radionice);
   }
 
-
-  loadRadionice() {
-    this.radioniceService.getRadionice(this.translate.currentLang).subscribe(
-      (response: any) => {
-        if (this.isApiResponseValid(response)) {
-          this.radionice = response.data;
-        } else {
-          this.handleApiError('Invalid API response', response);
-        }
-      },
-      (error) => {
-        this.handleApiError('API request failed', error);
-      }
-    );
+  klikTest(){
+    console.log(this.radionice);
   }
 
-
-  //error handling functions section
-  
-  private isApiResponseValid(response: any): boolean {
-    return (
-      response &&
-      response.status === 'OK' &&
-      response.msg === 'request_success' &&
-      Array.isArray(response.data)
-    );
-  }
-  
-  private handleApiError(message: string, error: any): void {
-    const errorMessage = error.status
-      ? `API request failed with status ${error.status}`
-      : 'An error occurred';
-  
-    console.error(`${message}:`, errorMessage, error);
-  }
 
 }
