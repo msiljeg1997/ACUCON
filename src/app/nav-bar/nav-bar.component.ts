@@ -25,7 +25,7 @@ export class NavBarComponent {
 
     //umjetni spinner koj ide na click u navbaru --> dodatak AfterView u naslovnoj.ts => 
   //to sam radio posto interceptor radi na http req a u naslovnoj nema http req pa nije bacao spinner, pa radi konzistencije
-  //UXa sam dodao...cheers!
+  //UXa sam dodao...
 
 
   showSpinner() {
