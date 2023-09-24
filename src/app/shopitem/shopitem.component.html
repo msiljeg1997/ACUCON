@@ -1,22 +1,41 @@
 <div class="card mb-4 box-shadow">
   <img class="card-img-top">
   <div class="card-body">
-    <h1 class="card-text">{{radionice?.theme}}</h1>
-    <p class="card-body" >{{ radionice?.description }}</p>
+    <div class="h1TextDiv text-center">
+      <h1 class="card-text">{{ radionice?.theme }}</h1>
+    </div>
+    <div
+      class="pTextDiv"
+      [ngStyle]="{
+        'max-height': isExpanded ? 'none' : '500px',
+        'overflow': isExpanded ? 'auto' : 'hidden'
+      }"
+    >
+      <p class="card-body">
+        {{ radionice?.description }}
+      </p>
+    </div>
+    <div class="show">
+      <a href="javascript:void(0)" *ngIf="!isExpanded" (click)="toggleExpanded()">
+        Show More
+      </a>
+      <a href="javascript:void(0)" *ngIf="isExpanded" (click)="toggleExpanded()">
+        Show Less
+      </a>
+    </div>
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
         <button
-        type="button"
-        class="btn btn-sm"
-        [ngClass]="{'btn-outline-secondary': !isSelected, 'selected-button': isSelected}"
-        (click)="addToBasket(); toggleSelected();"
-      >
-        {{ isSelected ? 'Selected' : 'Select' }}
-      </button>
-      
-      
-      
-      
+          type="button"
+          class="btn btn-sm"
+          [ngClass]="{
+            'btn-outline-secondary': !isSelected,
+            'selected-button': isSelected
+          }"
+          (click)="addToBasket(); toggleSelected();"
+        >
+          {{ isSelected ? 'Selected' : 'Select' }}
+        </button>
       </div>
     </div>
   </div>
