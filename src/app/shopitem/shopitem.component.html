@@ -7,12 +7,16 @@
       <div class="btn-group">
         <button
         type="button"
-        class="btn btn-sm btn-outline-secondary"
-        [class.selected-button]="isSelected"
-        (click)="addToBasket()"
+        class="btn btn-sm"
+        [ngClass]="{'btn-outline-secondary': !isSelected, 'selected-button': isSelected}"
+        (click)="addToBasket(); toggleSelected();"
       >
-        {{ isSelected ? 'Selected' : ('addToBasket' | translate) }}
-      </button>      
+        {{ isSelected ? 'Selected' : 'Select' }}
+      </button>
+      
+      
+      
+      
       </div>
     </div>
   </div>

@@ -40,7 +40,12 @@ this.loadRadionice();
   }
 
   addToBasket(cardTitle: string) {
-    this.selectedCards.push(cardTitle);
+    const index = this.selectedCards.indexOf(cardTitle)
+    if (index !== -1) {
+      this.selectedCards.splice(index, 1);
+    } else {
+      this.selectedCards.push(cardTitle);
+    }
   }
 
 

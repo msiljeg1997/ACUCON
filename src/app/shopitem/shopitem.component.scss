@@ -1,5 +1,13 @@
-.selected-button {
-    background-color: green;
-    color: white; 
+/* CSS for btn-outline-secondary */
+.btn-outline-secondary {
+    background-color: rgb(255, 21, 0);
+    border-color: rgb(255, 21, 0);
+    color: #fff;
   }
   
+  /* CSS for selected-button */
+  .selected-button {
+    background-color: #007bff;
+    border-color: #007bff ;
+    color: #fff;
+  }

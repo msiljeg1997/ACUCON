@@ -11,6 +11,7 @@
             <div class="row row-cols-3 g-3">
               <div class="col" *ngFor="let item of radionica">
                 <app-shopItems [radionice]="item" (cardSelected)="addToBasket($event)"></app-shopItems>
+
               </div>
               
               
