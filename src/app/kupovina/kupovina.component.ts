@@ -1,26 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { iRadionice } from '../models/radionice';
 import { APIServis } from '../api.service';
 import { TranslateService } from '@ngx-translate/core';
+import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-kupovina',
   templateUrl: './kupovina.component.html',
   styleUrls: ['./kupovina.component.scss']
 })
-export class KupovinaComponent implements OnInit{
+export class KupovinaComponent implements OnInit {
+  @ViewChild(FormGroupDirective, { static: false }) userForm!: FormGroupDirective;
 
   radionica: iRadionice[] = [];
   selectedCards: string[] = [];
   userName: string = '';
   userSurname: string = '';
-  userEmail: string = '';
+  userMobile: string = '';
 
-
-  constructor(private radioniceService: APIServis, private translate: TranslateService ) {}
+  constructor(private radioniceService: APIServis, private translate: TranslateService, private fb: FormBuilder) {}
 
   ngOnInit() {
-this.loadRadionice();
+    this.loadRadionice();
   }
 
   loadRadionice() {
@@ -28,7 +29,7 @@ this.loadRadionice();
       (response: any) => {
         if (this.isApiResponseValid(response)) {
           this.radionica = response.data;
-          console.log('dal radi u parent',this.radionica);
+          console.log('dal radi u parent', this.radionica);
         } else {
           this.handleApiError('Invalid API response', response);
         }
@@ -40,7 +41,7 @@ this.loadRadionice();
   }
 
   addToBasket(cardTitle: string) {
-    const index = this.selectedCards.indexOf(cardTitle)
+    const index = this.selectedCards.indexOf(cardTitle);
     if (index !== -1) {
       this.selectedCards.splice(index, 1);
     } else {
@@ -48,20 +49,31 @@ this.loadRadionice();
     }
   }
 
-
   sendOffer() {
-    const message = `Selected Cards:\n${this.selectedCards.join('\n')}\n\nName: ${this.userName} ${this.userSurname}\nEmail: ${this.userEmail}`;
+    const selectedWorkshopsTranslation = this.translate.instant('Workshops');
+    const nameTranslation = this.translate.instant('WorkshopNameEmail');
 
-    const mailtoLink = `mailto:${this.userEmail}?subject=Selected Cards&body=${encodeURIComponent(message)}`;
+    const selectedWorkshops = this.selectedCards.filter((cardTitle) =>
+      this.radionica.some((item) => item.theme === cardTitle)
+    );
+
+    const message = `Selected Cards:\n${this.selectedCards.join(
+      '\n'
+    )}\n\nName: ${this.userName} ${this.userSurname}\nMobile: ${this.userMobile}`;
+
+    const subject = `${selectedWorkshopsTranslation} ${this.userName} ${this.userSurname}`;
+    const mailtoLink = `mailto:test@test.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(message)}`;
     window.location.href = mailtoLink;
   }
-  
-  
 
-
+  isFormValid(): boolean {
+    return !!this.userForm?.form.valid;
+  }
 
   //error handling functions section
-  
+
   private isApiResponseValid(response: any): boolean {
     return (
       response &&
@@ -70,12 +82,12 @@ this.loadRadionice();
       Array.isArray(response.data)
     );
   }
-  
+
   private handleApiError(message: string, error: any): void {
     const errorMessage = error.status
       ? `API request failed with status ${error.status}`
       : 'An error occurred';
-  
+
     console.error(`${message}:`, errorMessage, error);
   }
   //maknut vinko

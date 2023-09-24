@@ -13,13 +13,8 @@
                 <app-shopItems [radionice]="item" (cardSelected)="addToBasket($event)"></app-shopItems>
 
               </div>
-              
-              
-              
-              
-                  
                 <div>
-                    <form>
+                    <form #userForm="ngForm">
                       <div class="form-group">
                         <label for="userName">{{'FormName' | translate}}</label>
                         <input type="text" class="form-control" id="userName" [(ngModel)]="userName" name="userName">
@@ -28,11 +23,38 @@
                         <label for="userSurname">{{'FormSurname' | translate}}</label>
                         <input type="text" class="form-control" id="userSurname" [(ngModel)]="userSurname" name="userSurname">
                       </div>
+                      <div class="form-group">
+                        <label for="userMobile">{{'FormMobile' | translate}}</label>
+                        <input
+                          type="tel" 
+                          class="form-control"
+                          id="userMobile"
+                          [(ngModel)]="userMobile"
+                          name="userMobile"
+                          #userMobileInput="ngModel" 
+                          pattern="[0-9]*" 
+                          minlength="9" 
+                          required
+                        >
+                        <div *ngIf="userMobileInput.invalid && (userMobileInput.dirty || userMobileInput.touched)">
+                          <div *ngIf="userMobileInput.errors?.['required']">
+                            {{'FormMobileValidation' | translate}}
+                          </div>
+                          <div *ngIf="userMobileInput.errors?.['pattern']">
+                            {{'FormMobileValidationOnlyDigits' | translate}}
+                          </div>
+                          <div *ngIf="userMobileInput.errors?.['minlength']">
+                            {{'FormMobileValidationDigits' | translate}}
+                          </div>
+                        </div>
+                        
+                      </div>
+                      
                     </form>
-                    <button class="btn btn-primary" (click)="sendOffer()">{{'SendOffer' | translate}}</button>
-                  </div>
-                  
-                
+                    <button class="btn btn-primary" [disabled]="!userForm.valid" (click)="sendOffer()">
+                      {{ 'SendOffer' | translate }}
+                    </button>
+                  </div> 
             </div>
         </section>
     </div>
