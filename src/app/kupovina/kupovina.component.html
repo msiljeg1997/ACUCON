@@ -1,82 +1,77 @@
 <div class="container">
-    <div class="row">
-        <section class="col-12 col-md-9 section1">
-            <div class="d-flex justify-content-between align-items-center pb-2 divOdHeadera">
-                <header class="header">
-                  <div class="h1TextDiv">
-                    <h1 class="align-items-center p-5">
-                       1. Pick your workshops
-                    </h1>
-                  </div>
-                    <h2 class="align-items-center p-5">
-                      Please pick workshops you want to buy
-                    </h2>
-                </header>
+  <div class="row">
+    <section class="col-12 col-md-9 section1">
+      <div class="d-flex justify-content-between align-items-center pb-2 divOdHeadera">
+        <header class="header">
+          <div class="h1TextDiv">
+            <h1 class="align-items-center p-5">
+              1. Pick your workshops
+            </h1>
+          </div>
+          <h2 class="align-items-center p-5">
+            Please pick workshops you want to buy
+          </h2>
+        </header>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-3">
+        <div class="col colHolder" *ngFor="let item of radionica">
+          <app-shopItems [radionice]="item" (cardSelected)="addToBasket($event)"></app-shopItems>
+        </div>
+      </div>
+    </section>
+    <header class="header">
+      <div class="h1TextDiv">
+        <h1 class="align-items-center p-5">
+          2. Please fill in the contact information
+        </h1>
+      </div>
+      <h2 class="align-items-center p-5">
+        So we can contact you with the invoice
+      </h2>
+    </header>
+    <section>
+      <div>
+        <div class="centered-form">
+          <form #userForm="ngForm" (ngSubmit)="sendOffer()">
+            <div class="form-group">
+              <label for="userName">{{'FormName' | translate}}</label>
+              <input type="text" class="form-control" id="userName" [(ngModel)]="userName" name="userName">
             </div>
-            <div class="row row-cols-1 row-cols-md-3 g-3">
-              <div class="col colHolder" *ngFor="let item of radionica">
-                <app-shopItems [radionice]="item" (cardSelected)="addToBasket($event)"></app-shopItems>
-
+            <div class="form-group">
+              <label for="userSurname">{{'FormSurname' | translate}}</label>
+              <input type="text" class="form-control" id="userSurname" [(ngModel)]="userSurname" name="userSurname">
+            </div>
+            <div class="form-group">
+              <label for="userMobile">{{'FormMobile' | translate}}</label>
+              <input
+                type="tel" 
+                class="form-control"
+                id="userMobile"
+                [(ngModel)]="userMobile"
+                name="userMobile"
+                #userMobileInput="ngModel" 
+                pattern="[0-9]*" 
+                minlength="9" 
+                required
+              >
+              <div *ngIf="userMobileInput.invalid && (userMobileInput.dirty || userMobileInput.touched)">
+                <div *ngIf="userMobileInput.errors?.['required']" style="color: red;">
+                  {{'FormMobileValidation' | translate}}
+                </div>
+                <div *ngIf="userMobileInput.errors?.['pattern']" style="color: red;">
+                  {{'FormMobileValidationOnlyDigits' | translate}}
+                </div>
+                <div *ngIf="userMobileInput.errors?.['minlength']" style="color: red;">
+                  {{'FormMobileValidationDigits' | translate}}
+                </div>
               </div>
             </div>
-          </section>
-          <header class="header">
-            <div class="h1TextDiv">
-              <h1 class="align-items-center p-5">
-                 2. Please fill in the contact information
-              </h1>
-            </div>
-              <h2 class="align-items-center p-5">
-              So we can contact you with the invoice
-              </h2>
-          </header>
-          <section>
-          <div>
-            <div class="centered-form">
-
-              <form #userForm="ngForm">
-                <div class="form-group">
-                  <label for="userName">{{'FormName' | translate}}</label>
-                  <input type="text" class="form-control" id="userName" [(ngModel)]="userName" name="userName">
-                </div>
-                <div class="form-group">
-                  <label for="userSurname">{{'FormSurname' | translate}}</label>
-                  <input type="text" class="form-control" id="userSurname" [(ngModel)]="userSurname" name="userSurname">
-                </div>
-                <div class="form-group">
-                  <label for="userMobile">{{'FormMobile' | translate}}</label>
-                  <input
-                    type="tel" 
-                    class="form-control"
-                    id="userMobile"
-                    [(ngModel)]="userMobile"
-                    name="userMobile"
-                    #userMobileInput="ngModel" 
-                    pattern="[0-9]*" 
-                    minlength="9" 
-                    required
-                  >
-                  <div *ngIf="userMobileInput.invalid && (userMobileInput.dirty || userMobileInput.touched)">
-                    <div *ngIf="userMobileInput.errors?.['required']" style="color: red;">
-                      {{'FormMobileValidation' | translate}}
-                    </div>
-                    <div *ngIf="userMobileInput.errors?.['pattern']" style="color: red;">
-                      {{'FormMobileValidationOnlyDigits' | translate}}
-                    </div>
-                    <div *ngIf="userMobileInput.errors?.['minlength']" style="color: red;">
-                      {{'FormMobileValidationDigits' | translate}}
-                    </div>
-                  </div>
-                  
-                </div>
-                
-              </form>
-            </div>
-              <button class="btn btn-primary" [disabled]="!userForm.valid" (click)="sendOffer()">
-                {{ 'SendOffer' | translate }}
-              </button>
-            </div> 
-          </section>
-    </div>
-    
+            <button class="btn btn-primary" [disabled]="!userForm.valid" type="submit">
+              {{ 'SendOffer' | translate }}
+            </button>
+          </form>
+        </div>
+      </div> 
+    </section>
+  </div>
 </div>
