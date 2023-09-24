@@ -11,6 +11,11 @@ import { TranslateService } from '@ngx-translate/core';
 export class KupovinaComponent implements OnInit{
 
   radionica: iRadionice[] = [];
+  selectedCards: string[] = [];
+  userName: string = '';
+  userSurname: string = '';
+  userEmail: string = '';
+
 
   constructor(private radioniceService: APIServis, private translate: TranslateService ) {}
 
@@ -33,6 +38,21 @@ this.loadRadionice();
       }
     );
   }
+
+  addToBasket(cardTitle: string) {
+    this.selectedCards.push(cardTitle);
+  }
+
+
+  sendOffer() {
+    const message = `Selected Cards:\n${this.selectedCards.join('\n')}\n\nName: ${this.userName} ${this.userSurname}\nEmail: ${this.userEmail}`;
+
+    const mailtoLink = `mailto:${this.userEmail}?subject=Selected Cards&body=${encodeURIComponent(message)}`;
+    window.location.href = mailtoLink;
+  }
+  
+  
+
 
 
   //error handling functions section

@@ -1,9 +1,9 @@
 @keyframes ticker {
     0% {
-      transform: translateX(100%);
+      transform: translateX(50%);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translateX(-50%);
     }
   }
   
@@ -18,7 +18,7 @@
   .ticker__items {
     height: 80px;
     display: flex;
-    animation: ticker var(--animation-duration, 10) linear infinite; 
+    animation: ticker var(--animation-duration, ) linear infinite; 
   }
   
   .ticker__item {

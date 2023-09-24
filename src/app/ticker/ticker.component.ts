@@ -8,6 +8,13 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 export class TickerComponent implements AfterViewInit {
 
   organizations = [
+    'assets/wihsvg.png',
+    'assets/wihsvg.png',
+    'assets/wihsvg.png',
+    'assets/wihsvg.png',
+    'assets/wihsvg.png',
+    'assets/wihsvg.png',
+    
 
 
 ];
@@ -18,7 +25,7 @@ export class TickerComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const tickerItemsWidth = this.tickerItems.nativeElement.getBoundingClientRect().width;
-    const animationDuration = 5000; 
+    const animationDuration = 50000; 
 
     this.tickerItems.nativeElement.style.setProperty('--animation-duration', `${animationDuration / tickerItemsWidth}s`);
   }

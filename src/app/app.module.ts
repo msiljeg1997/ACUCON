@@ -18,6 +18,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { OkonferencijComponent } from './okonferencij/okonferencij.component';
 import { ShopitemComponent } from './shopitem/shopitem.component';
 import { KupovinaComponent } from './kupovina/kupovina.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -51,7 +52,8 @@ import { KupovinaComponent } from './kupovina/kupovina.component';
         useFactory: httpTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    FormsModule
   ],
   exports: [
     NgxSpinnerModule,

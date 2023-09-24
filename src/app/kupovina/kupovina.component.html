@@ -9,10 +9,28 @@
                 </header>
             </div>
             <div class="row row-cols-3 g-3">
-                <div class="col" *ngFor="let item of radionica">
-                    <app-shopItems [radionice]="item"></app-shopItems>
-                </div>
-                
+              <div class="col" *ngFor="let item of radionica">
+                <app-shopItems [radionice]="item" (cardSelected)="addToBasket($event)"></app-shopItems>
+              </div>
+              
+              
+              
+              
+                  
+                <div>
+                    <form>
+                      <div class="form-group">
+                        <label for="userName">{{'FormName' | translate}}</label>
+                        <input type="text" class="form-control" id="userName" [(ngModel)]="userName" name="userName">
+                      </div>
+                      <div class="form-group">
+                        <label for="userSurname">{{'FormSurname' | translate}}</label>
+                        <input type="text" class="form-control" id="userSurname" [(ngModel)]="userSurname" name="userSurname">
+                      </div>
+                    </form>
+                    <button class="btn btn-primary" (click)="sendOffer()">{{'SendOffer' | translate}}</button>
+                  </div>
+                  
                 
             </div>
         </section>

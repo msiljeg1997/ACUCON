@@ -5,9 +5,15 @@
     <p class="card-body" >{{ radionice?.description }}</p>
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+        <button
+        type="button"
+        class="btn btn-sm btn-outline-secondary"
+        [class.selected-button]="isSelected"
+        (click)="addToBasket()"
+      >
+        {{ isSelected ? 'Selected' : ('addToBasket' | translate) }}
+      </button>      
       </div>
-      <small class="text-muted">9 mins</small>
     </div>
   </div>
 </div>

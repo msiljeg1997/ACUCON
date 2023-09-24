@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { iRadionice } from '../models/radionice';
 import { APIServis } from '../api.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,17 +8,20 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './shopitem.component.html',
   styleUrls: ['./shopitem.component.scss']
 })
-export class ShopitemComponent  {
+export class ShopitemComponent {
   @Input() radionice?: iRadionice;
-  
+  @Output() cardSelected = new EventEmitter<string>();
+  isSelected: boolean = false;
 
-  constructor(private translate: TranslateService ) {
-    console.log('dal radi u child', this.radionice);
+
+
+  constructor(private translate: TranslateService) {
   }
 
-  klikTest(){
-    console.log(this.radionice);
+  addToBasket() {
+    const cardTitle = this.radionice?.theme;
+    if (cardTitle) {
+      this.cardSelected.emit(cardTitle);
+    }
   }
-
-
 }
