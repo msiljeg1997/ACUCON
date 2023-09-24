@@ -37,4 +37,56 @@
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
+
+.centered-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px ;
+}
+
+.centered-form input[type="text"] {
+  width: 80%; 
+  padding: 5px; 
+  margin: 5px 0; 
+}
+
+h2 {
+  size: 4vw !important;
+}
+
+.h1TextDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d78ea38; 
+  color: #fff;
+  box-sizing: border-box;
+  margin-top: 30px;
+  width: 100%;
+}
+
+
+@media screen and (max-width: 768px) {
+  .h1TextDiv {
+    text-align: center; 
+  }
+
+
+}
+
+header{
+  width: 100%;
+}
+.col-12.col-md-9.section1 {
+  width: 100% !important;
+}
+
+divOdHeadera{
+  width: 100%;
+}
+.col.colHolder.ng-star-inserted {
+
+  height: auto;
+}

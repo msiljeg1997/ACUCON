@@ -1,26 +1,40 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BusyService } from '../busy.service';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../language.service';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
   activeRoute: string = ''; 
   isNavbarCollapsed = true;
   isNavbarHidden = false;
+  selectedLanguage: string = 'en'; 
 
 
 
-  constructor(private busyService: BusyService, private router: Router, public translate: TranslateService) {
+
+
+  constructor(private busyService: BusyService, private router: Router, public translate: TranslateService,  private languageService: LanguageService ) {
+  }
+
+  ngOnInit(): void {
+    const storedLanguage = this.languageService.getLanguage();
+    if (storedLanguage) {
+      this.selectedLanguage = storedLanguage;
+      this.translate.use(storedLanguage);
+    }
   }
 
   switchLang(lang: string) {
+    this.selectedLanguage = lang;
     this.translate.use(lang);
+    this.languageService.setLanguage(lang);
   }
 
     //umjetni spinner koj ide na click u navbaru --> dodatak AfterView u naslovnoj.ts => 
