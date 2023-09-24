@@ -1,29 +1,76 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { iRadionice } from '../models/radionice';
 import { APIServis } from '../api.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Renderer2 } from '@angular/core';
+import { AnimationBuilder, AnimationPlayer, AnimationMetadata, style, animate, trigger, transition, useAnimation, keyframes} from '@angular/animations';
+
+export function animateScroll(options: any): AnimationMetadata[] {
+  return [
+    animate(
+      options.timing,
+      style({
+        transform: 'translateY(-100%)',
+        height: '100%',
+        opacity: 0,
+      })
+    ),
+    animate(
+      options.timing,
+      style({
+        transform: 'translateY(0)',
+        height: '100%',
+        opacity: 1,
+      })
+    ),
+  ];
+}
 
 @Component({
   selector: 'app-shopItems',
   templateUrl: './shopitem.component.html',
   styleUrls: ['./shopitem.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('scrollAnimation', [
+      transition(':enter', [
+        animate(
+          '500ms ease-in-out',
+          keyframes([
+            style({
+              transform: 'translateY(-100%)',
+              height: '100%',
+              opacity: 0,
+              offset: 0,
+            }),
+            style({
+              transform: 'translateY(0)',
+              height: '100%',
+              opacity: 1,
+              offset: 1,
+            }),
+          ])
+        ),
+      ]),
+    ]),
+  ],
 })
 export class ShopitemComponent {
   @Input() radionice?: iRadionice;
+  @Input() cardIndex?: number;
   @Output() cardSelected = new EventEmitter<string>();
   isSelected: boolean = false;
   isExpanded: boolean = false;
   showMoreMobile: boolean = false;
+  isExpandedMobile: boolean = false;
 
-
-
-
-
-  constructor(private translate: TranslateService, private renderer: Renderer2) {
+  ngOnInit() {
+    this.checkScreenWidth();
+    window.addEventListener('resize', () => {
+      this.checkScreenWidth();
+    });
   }
-  
+
+  constructor(private translate: TranslateService, private renderer: Renderer2, private el: ElementRef) {}
 
   addToBasket() {
     const cardTitle = this.radionice?.theme;
@@ -35,7 +82,16 @@ export class ShopitemComponent {
   toggleSelected() {
     this.isSelected = !this.isSelected;
   }
-  toggleExpanded() {
+
+  toggleExpanded2() {
+    if (window.innerWidth < 770) {
+      this.toggleExpandedMobile();
+    } else {
+      this.toggleExpandedDesktop();
+    }
+  }
+
+  toggleExpandedDesktop() {
     this.isExpanded = !this.isExpanded;
     const cardTextElement = document.querySelector('.pTextDiv p.card-body') as HTMLElement;
     if (this.isExpanded) {
@@ -46,4 +102,30 @@ export class ShopitemComponent {
       this.renderer.setStyle(cardTextElement, 'overflow', 'hidden');
     }
   }
+
+  toggleExpandedMobile() {
+    this.isExpandedMobile = !this.isExpandedMobile;
+    const cardTextElement = document.querySelector('.pTextDiv p.card-body') as HTMLElement;
+    if (this.isExpandedMobile) {
+      this.renderer.removeStyle(cardTextElement, 'max-height');
+      this.renderer.removeStyle(cardTextElement, 'overflow');
+    } else {
+      this.renderer.setStyle(cardTextElement, 'max-height', '200px');
+      this.renderer.setStyle(cardTextElement, 'overflow', 'hidden');
+    }
+  }
+
+  checkScreenWidth() {
+    this.showMoreMobile = window.innerWidth <= 768; 
+  }
+  scrollToHeading() {
+    if (this.cardIndex !== undefined) {
+      console.log(`Scrolling to card index ${this.cardIndex}`);
+      const h1Element = document.getElementById(`card-text-${this.cardIndex}`);
+      if (h1Element) {
+        h1Element.focus();
+      }
+    }
+  }
+  
 }

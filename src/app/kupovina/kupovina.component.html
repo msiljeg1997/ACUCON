@@ -14,9 +14,13 @@
         </header>
       </div>
       <div class="row row-cols-1 row-cols-md-3 g-3">
-        <div class="col colHolder" *ngFor="let item of radionica">
-          <app-shopItems [radionice]="item" (cardSelected)="addToBasket($event)"></app-shopItems>
+        <div class="col colHolder" *ngFor="let item of radionica; let i = index">
+          <app-shopItems [radionice]="item" [cardIndex]="i" (cardSelected)="addToBasket($event)"></app-shopItems>
         </div>
+        
+        
+        
+        
       </div>
     </section>
     <header class="header">

@@ -17,6 +17,7 @@ export class KupovinaComponent implements OnInit {
   userName: string = '';
   userSurname: string = '';
   userMobile: string = '';
+  selectedCardIndex: number = -1;
 
   constructor(private radioniceService: APIServis, private translate: TranslateService, private fb: FormBuilder) {}
 
@@ -90,5 +91,8 @@ export class KupovinaComponent implements OnInit {
 
     console.error(`${message}:`, errorMessage, error);
   }
-  //maknut vinko
+  selectCard(index: number) {
+    this.selectedCardIndex = index;
+  }
+  
 }
