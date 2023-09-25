@@ -27,14 +27,21 @@
     overflow: hidden;
     margin-bottom: 20px;
   }
+
+  .pTextTitula{
+    font-style: italic;
+
+  }
+
   .show {
     margin-bottom: 20px;
   }
   h1{
     justify-content: center;
   }
+
   .h1TextDiv{
-    height: 144px;
+    height: 200px;
   }
   @media (max-width: 768px) {
     .card-body {
@@ -44,7 +51,13 @@
     .pTextDiv{
         margin-bottom: 10px;
     }
+    .pTextTitula{
+      margin-bottom: 20px;
+      margin-top: 20px;
+  
+    }
     .h1TextDiv{
         height: 100px;
     }
+
   }

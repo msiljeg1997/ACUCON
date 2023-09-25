@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { iRadionice } from '../models/radionice';
 import { APIServis } from '../api.service';
 import { TranslateService } from '@ngx-translate/core';
-import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
+import { FormBuilder, FormGroupDirective } from '@angular/forms';
+import { iPredavaci } from '../models/predavaci';
+
 
 @Component({
   selector: 'app-kupovina',
@@ -11,8 +13,11 @@ import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular
 })
 export class KupovinaComponent implements OnInit {
   @ViewChild(FormGroupDirective, { static: false }) userForm!: FormGroupDirective;
+  
+
 
   radionica: iRadionice[] = [];
+  predavaci: iPredavaci[] = [];
   selectedCards: string[] = [];
   userName: string = '';
   userSurname: string = '';
@@ -25,12 +30,20 @@ export class KupovinaComponent implements OnInit {
     this.loadRadionice();
   }
 
+  
+  
+
+
+
+
+
   loadRadionice() {
     this.radioniceService.getRadionice(this.translate.currentLang).subscribe(
       (response: any) => {
         if (this.isApiResponseValid(response)) {
           this.radionica = response.data;
           console.log('dal radi u parent', this.radionica);
+          console.log('Predavaci data in KupovinaComponent: ', this.predavaci);
         } else {
           this.handleApiError('Invalid API response', response);
         }

@@ -4,6 +4,7 @@ import { APIServis } from '../api.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Renderer2 } from '@angular/core';
 import { AnimationBuilder, AnimationPlayer, AnimationMetadata, style, animate, trigger, transition, useAnimation, keyframes} from '@angular/animations';
+import { iPredavaci } from '../models/predavaci';
 
 export function animateScroll(options: any): AnimationMetadata[] {
   return [
@@ -62,20 +63,24 @@ export class ShopitemComponent {
   isExpanded: boolean = false;
   showMoreMobile: boolean = false;
   isExpandedMobile: boolean = false;
+  participants: iPredavaci[] = [];
+
 
   ngOnInit() {
     this.checkScreenWidth();
     window.addEventListener('resize', () => {
       this.checkScreenWidth();
     });
+    this.loadParticipants()
   }
 
-  constructor(private translate: TranslateService, private renderer: Renderer2, private el: ElementRef) {}
+  constructor(private translate: TranslateService, private renderer: Renderer2, private el: ElementRef, private predavaciService: APIServis) {}
 
   addToBasket() {
     const cardTitle = this.radionice?.theme;
     if (cardTitle) {
       this.cardSelected.emit(cardTitle);
+      
     }
   }
 
@@ -127,5 +132,42 @@ export class ShopitemComponent {
       }
     }
   }
+
+  loadParticipants() {
+    this.predavaciService.getPredavaci(this.translate.currentLang).subscribe(
+      (response: any) => {
+        if (this.isApiResponseValid(response)) {
+          this.participants = response.data;
+          console.log('Loaded participants:', this.participants);
+        } else {
+          this.handleApiError('Invalid API response', response);
+        }
+      },
+      (error) => {
+        this.handleApiError('API request failed', error);
+      }
+    );
+  }
+  
+
+  //error handling functions section
+  
+  private isApiResponseValid(response: any): boolean {
+    return (
+      response &&
+      response.status === 'OK' &&
+      response.msg === 'request_success' &&
+      Array.isArray(response.data)
+    );
+  }
+  
+  private handleApiError(message: string, error: any): void {
+    const errorMessage = error.status
+      ? `API request failed with status ${error.status}`
+      : 'An error occurred';
+  
+    console.error(`${message}:`, errorMessage, error);
+  }
+  
   
 }

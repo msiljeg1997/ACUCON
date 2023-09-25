@@ -11,7 +11,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { AccordionModule } from 'primeng/accordion';
 import { RadioniceComponent } from './radionice/radionice.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
-import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -19,6 +19,9 @@ import { OkonferencijComponent } from './okonferencij/okonferencij.component';
 import { ShopitemComponent } from './shopitem/shopitem.component';
 import { KupovinaComponent } from './kupovina/kupovina.component';
 import { FormsModule } from '@angular/forms';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
+
 
 
 
@@ -53,7 +56,10 @@ import { FormsModule } from '@angular/forms';
         deps: [HttpClient]
       }
     }),
-    FormsModule
+    FormsModule,
+    AlertModule.forRoot(),
+    
+
   ],
   exports: [
     NgxSpinnerModule,
