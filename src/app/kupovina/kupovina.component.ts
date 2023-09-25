@@ -28,6 +28,7 @@ export class KupovinaComponent implements OnInit {
 
   ngOnInit() {
     this.loadRadionice();
+    console.log("malimajmunG0rila")
   }
 
   
