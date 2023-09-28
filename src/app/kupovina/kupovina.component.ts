@@ -28,7 +28,7 @@ export class KupovinaComponent implements OnInit {
 
   ngOnInit() {
     this.loadRadionice();
-    console.log("malimajmunG0rila")
+    console.log("2")
   }
 
   
@@ -63,26 +63,28 @@ export class KupovinaComponent implements OnInit {
       this.selectedCards.push(cardTitle);
     }
   }
-
   sendOffer() {
     const selectedWorkshopsTranslation = this.translate.instant('Workshops');
     const nameTranslation = this.translate.instant('WorkshopNameEmail');
-
-    const selectedWorkshops = this.selectedCards.filter((cardTitle) =>
-      this.radionica.some((item) => item.theme === cardTitle)
+  
+    // Create an array of workshop names based on selectedCards
+    const selectedWorkshops = this.selectedCards.map((cardTitle) =>
+      this.radionica.find((item) => item.theme === cardTitle)?.theme || ''
     );
-
-    const message = `Selected Cards:\n${this.selectedCards.join(
+  
+    // Remove any empty strings from the selectedWorkshops array
+    const filteredSelectedWorkshops = selectedWorkshops.filter((workshop) => workshop !== '');
+  
+    const message = `Selected Workshops:\n${filteredSelectedWorkshops.join(
       '\n'
     )}\n\nName: ${this.userName} ${this.userSurname}\nMobile: ${this.userMobile}`;
-
+  
     const subject = `${selectedWorkshopsTranslation} ${this.userName} ${this.userSurname}`;
     const mailtoLink = `mailto:test@test.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(message)}`;
     window.location.href = mailtoLink;
   }
-
   isFormValid(): boolean {
     return !!this.userForm?.form.valid;
   }
