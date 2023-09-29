@@ -21,8 +21,15 @@
       height: 480px; 
       line-height: 80px;
     }
+    .sekcija2{
+      margin-bottom: 10px;
+    }
   }
-  
+  .sekcija2{
+    border: 1px solid #847d7d88;
+    background-color: #0d78ea38; 
+     margin-bottom: 50px;
+  }
 
 
 .centered-form {
@@ -51,8 +58,15 @@ h2 {
   box-sizing: border-box;
   margin-top: 30px;
   width: 100%;
+  border: 1px solid #847d7d88;
 }
 
+.custom-form-width {
+  width: 300px; 
+}
+#userMobile{
+  width:240px ;
+}
 
 @media screen and (max-width: 768px) {
   .h1TextDiv {
