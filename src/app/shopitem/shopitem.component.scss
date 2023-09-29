@@ -11,7 +11,9 @@
     border-color: #007bff ;
     color: #fff;
   }
-
+  .card-text{
+    margin-top: 30px;
+  }
   card-body{
     min-width: 50px;
     min-height: 100px;
@@ -38,6 +40,7 @@
 
   .h1TextDiv{
     height: auto;
+    cursor: pointer;
   }
 
   .textCenterh3{
@@ -63,3 +66,5 @@
     }
 
   }
+
+
