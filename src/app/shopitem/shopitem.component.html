@@ -13,8 +13,8 @@
           type="button"
           class="btn btn-sm selectGumb"
           [ngClass]="{
-            'btn-outline-secondary': !isSelected,
-      'selected-button': isSelected
+            'btn-outline-secondary': !radionice.selected,
+      'selected-button': radionice.selected
           }"
           (click)="addToBasket(); toggleSelected(); "
         >

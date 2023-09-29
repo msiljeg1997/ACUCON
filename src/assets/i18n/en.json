@@ -27,7 +27,7 @@
     "followLink":"Click on the button to book your stay with a DISCOUNT",
     "FormAddress": "Adress",
     "contactText": "Please fill in the contact information",
-    "contactText2": "Our team will contact you as soon as posible",
+    "contactText2": "*Our team will contact you as soon as posible",
     "studentText":"*Student tickets can be purchased with a proof of enrollment.",
     "FormOIBValidationDigits":"OIB must contain minimum of 11 digits",
     "FormOIBValidationOnlyDigits":"OIB should only contain digits",
