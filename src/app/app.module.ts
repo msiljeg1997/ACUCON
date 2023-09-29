@@ -20,6 +20,7 @@ import { ShopitemComponent } from './shopitem/shopitem.component';
 import { KupovinaComponent } from './kupovina/kupovina.component';
 import { FormsModule } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { SmjestajComponent } from './smjestaj/smjestaj.component';
 
 
 
@@ -36,7 +37,8 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     RadioniceComponent,
     OkonferencijComponent,
     ShopitemComponent,
-    KupovinaComponent
+    KupovinaComponent,
+    SmjestajComponent
     
 
 

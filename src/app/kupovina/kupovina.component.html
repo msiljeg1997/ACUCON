@@ -168,9 +168,29 @@
               <input type="text" class="form-control" id="userAddress" [(ngModel)]="userAddress" name="userAddress">
             </div>
             <div class="form-group">
-              <label for="userOIB">OIB</label>
-              <input type="text" class="form-control" id="userOIB" [(ngModel)]="userOIB" name="userOIB">
+              <label for="userOIB">{{ 'FormOIB' | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                id="userOIB"
+                [(ngModel)]="userOIB"
+                name="userOIB"
+                #userOIBInput="ngModel"
+                pattern="[0-9]*"
+                minlength="11"
+                required
+              />
+              <div *ngIf="userOIBInput.invalid && (userOIBInput.dirty || userOIBInput.touched)">
+              
+                <div *ngIf="userOIBInput.hasError('pattern')" style="color: red;">
+                  {{ 'FormOIBValidationOnlyDigits' | translate }}
+                </div>
+                <div *ngIf="userOIBInput.hasError('minlength')" style="color: red;">
+                  {{ 'FormOIBValidationDigits' | translate }}
+                </div>
+              </div>
             </div>
+            
 
             <button class="btn btn-primary mt-3" [disabled]="!userForm.valid" type="submit">
               {{ 'SendOffer' | translate }}

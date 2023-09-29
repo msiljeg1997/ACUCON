@@ -5,6 +5,7 @@ import { RadioniceComponent } from './radionice/radionice.component';
 import { NaslovnaComponent } from './naslovna/naslovna.component';
 import { OkonferencijComponent } from './okonferencij/okonferencij.component';
 import { KupovinaComponent } from './kupovina/kupovina.component';
+import { SmjestajComponent } from './smjestaj/smjestaj.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/naslovna', pathMatch: 'full' }, 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'radionice', component: RadioniceComponent },
   { path: 'about', component: OkonferencijComponent },
   { path: 'shop', component: KupovinaComponent },
+  { path: 'smjestaj', component: SmjestajComponent },
 ];
 
 @NgModule({

@@ -6,8 +6,9 @@ import { Renderer2 } from '@angular/core';
 import { AnimationBuilder, AnimationPlayer, AnimationMetadata, style, animate, trigger, transition, useAnimation, keyframes } from '@angular/animations';
 import { iPredavaci } from '../models/predavaci';
 import { StorageService } from '../storage.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router'; // Import the Router and ActivatedRoute
 
+// Animation function for scrolling
 export function animateScroll(options: any): AnimationMetadata[] {
   return [
     animate(
@@ -58,23 +59,28 @@ export function animateScroll(options: any): AnimationMetadata[] {
   ],
 })
 export class ShopitemComponent {
+  // Input properties
   @Input() radionice!: iRadionice;
   @Input() cardIndex?: number;
+
+  // Output event
   @Output() cardSelected = new EventEmitter<string>();
+
+  // Component state variables
   isSelected: boolean = false;
   isExpanded: boolean = false;
   showMoreMobile: boolean = false;
   isExpandedMobile: boolean = false;
   participants: iPredavaci[] = [];
 
-
   ngOnInit() {
+    // Initialize component
     this.checkScreenWidth();
     window.addEventListener('resize', () => {
       this.checkScreenWidth();
     });
     this.loadParticipants();
-  this.storageService.getButtonTranslation(this.radionice);
+    this.storageService.getButtonTranslation(this.radionice);
   }
 
   constructor(
@@ -83,11 +89,11 @@ export class ShopitemComponent {
     private renderer: Renderer2,
     private el: ElementRef,
     private predavaciService: APIServis,
-    private router: Router,
-    private route: ActivatedRoute // Add this line
+    private router: Router, // Inject Router
+    private route: ActivatedRoute // Inject ActivatedRoute
   ) {}
 
-
+  // Redirect to the 'radionice' component with the cardIndex query parameter
   redirectToRadionice() {
     if (this.cardIndex !== undefined) {
       console.log(this.cardIndex);
@@ -97,21 +103,21 @@ export class ShopitemComponent {
     }
   }
 
+  // Handle adding items to the basket
   addToBasket() {
     const cardTitle = this.radionice?.theme;
     if (cardTitle) {
       this.cardSelected.emit(cardTitle);
-
     }
   }
 
+  // Toggle item selection
   toggleSelected() {
     this.radionice.selected = !this.radionice.selected;
     this.storageService.getButtonTranslation(this.radionice);
-
-    
   }
 
+  // Toggle item expansion (desktop)
   toggleExpanded2() {
     if (window.innerWidth < 770) {
       this.toggleExpandedMobile();
@@ -120,6 +126,7 @@ export class ShopitemComponent {
     }
   }
 
+  // Toggle item expansion (desktop)
   toggleExpandedDesktop() {
     this.isExpanded = !this.isExpanded;
     const cardTextElement = document.querySelector('.pTextDiv p.card-body') as HTMLElement;
@@ -132,6 +139,7 @@ export class ShopitemComponent {
     }
   }
 
+  // Toggle item expansion (mobile)
   toggleExpandedMobile() {
     this.isExpandedMobile = !this.isExpandedMobile;
     const cardTextElement = document.querySelector('.pTextDiv p.card-body') as HTMLElement;
@@ -144,35 +152,38 @@ export class ShopitemComponent {
     }
   }
 
+  // Check screen width for mobile view
   checkScreenWidth() {
     this.showMoreMobile = window.innerWidth <= 768;
   }
-  scrollToHeading() {
-    if (this.cardIndex !== undefined) {
-      console.log(`Scrolling to card index ${this.cardIndex}`);
-      const h1Element = document.getElementById(`card-text-${this.cardIndex}`);
-      if (h1Element) {
-        h1Element.focus();
+    // Scroll to the heading element
+    scrollToHeading() {
+      if (this.cardIndex !== undefined) {
+        console.log(`Scrolling to card index ${this.cardIndex}`);
+        const h1Element = document.getElementById(`card-text-${this.cardIndex}`);
+        if (h1Element) {
+          h1Element.focus();
+        }
       }
     }
-  }
-
-  loadParticipants() {
-    this.predavaciService.getPredavaci(this.translate.currentLang).subscribe(
-      (response: any) => {
-        if (this.isApiResponseValid(response)) {
-          this.participants = response.data;
-          console.log('Loaded participants:', this.participants);
-        } else {
-          this.handleApiError('Invalid API response', response);
+  
+    // Load participants data from the API
+    loadParticipants() {
+      this.predavaciService.getPredavaci(this.translate.currentLang).subscribe(
+        (response: any) => {
+          if (this.isApiResponseValid(response)) {
+            this.participants = response.data;
+            console.log('Loaded participants:', this.participants);
+          } else {
+            this.handleApiError('Invalid API response', response);
+          }
+        },
+        (error) => {
+          this.handleApiError('API request failed', error);
         }
-      },
-      (error) => {
-        this.handleApiError('API request failed', error);
-      }
-    );
-  }
-
+      );
+    }
+  
 
   //error handling functions section
 
