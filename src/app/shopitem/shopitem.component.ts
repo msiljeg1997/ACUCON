@@ -3,8 +3,9 @@ import { iRadionice } from '../models/radionice';
 import { APIServis } from '../api.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Renderer2 } from '@angular/core';
-import { AnimationBuilder, AnimationPlayer, AnimationMetadata, style, animate, trigger, transition, useAnimation, keyframes} from '@angular/animations';
+import { AnimationBuilder, AnimationPlayer, AnimationMetadata, style, animate, trigger, transition, useAnimation, keyframes } from '@angular/animations';
 import { iPredavaci } from '../models/predavaci';
+import { StorageService } from '../storage.service';
 
 export function animateScroll(options: any): AnimationMetadata[] {
   return [
@@ -56,7 +57,7 @@ export function animateScroll(options: any): AnimationMetadata[] {
   ],
 })
 export class ShopitemComponent {
-  @Input() radionice?: iRadionice;
+  @Input() radionice!: iRadionice;
   @Input() cardIndex?: number;
   @Output() cardSelected = new EventEmitter<string>();
   isSelected: boolean = false;
@@ -71,21 +72,26 @@ export class ShopitemComponent {
     window.addEventListener('resize', () => {
       this.checkScreenWidth();
     });
-    this.loadParticipants()
+    this.loadParticipants();
+  this.storageService.getButtonTranslation(this.radionice);
   }
 
-  constructor(private translate: TranslateService, private renderer: Renderer2, private el: ElementRef, private predavaciService: APIServis) {}
+  constructor(private storageService: StorageService, private translate: TranslateService, private renderer: Renderer2, private el: ElementRef, private predavaciService: APIServis) { }
 
   addToBasket() {
     const cardTitle = this.radionice?.theme;
     if (cardTitle) {
       this.cardSelected.emit(cardTitle);
-      
+
     }
   }
 
   toggleSelected() {
-    this.isSelected = !this.isSelected;
+    //this.isSelected = !this.isSelected;
+    this.radionice.selected = !this.radionice.selected;
+    this.storageService.getButtonTranslation(this.radionice);
+
+    
   }
 
   toggleExpanded2() {
@@ -121,7 +127,7 @@ export class ShopitemComponent {
   }
 
   checkScreenWidth() {
-    this.showMoreMobile = window.innerWidth <= 768; 
+    this.showMoreMobile = window.innerWidth <= 768;
   }
   scrollToHeading() {
     if (this.cardIndex !== undefined) {
@@ -148,10 +154,10 @@ export class ShopitemComponent {
       }
     );
   }
-  
+
 
   //error handling functions section
-  
+
   private isApiResponseValid(response: any): boolean {
     return (
       response &&
@@ -160,14 +166,15 @@ export class ShopitemComponent {
       Array.isArray(response.data)
     );
   }
-  
+
   private handleApiError(message: string, error: any): void {
     const errorMessage = error.status
       ? `API request failed with status ${error.status}`
       : 'An error occurred';
-  
+
     console.error(`${message}:`, errorMessage, error);
   }
-  
-  
+
+
+
 }

@@ -3,31 +3,17 @@
   <div class="card-body">
     <div class="h1TextDiv text-center">
       <h1 class="card-text" [@scrollAnimation]="{}" [id]="'card-text-' + cardIndex" tabindex="0">{{ radionice?.theme }}</h1>
+      <h3 class="textCenterh3">{{radionice?.first_name}} {{radionice?.last_name}} </h3>
     </div>
-    <div class="pTextTitula text-center">
-      <h3>{{radionice?.first_name}} {{radionice?.last_name}} </h3>
-    </div>
-    <div class="pTextDiv"
+    <!-- <div class="pTextDiv"
     [ngStyle]="{
       'max-height': isExpandedMobile ? 'none' : (isExpanded ? 'none' : '300px'),
       'overflow': isExpandedMobile ? 'auto' : (isExpanded ? 'auto' : 'hidden')
     }">
     <p class="card-body">{{ radionice?.description }}</p>
-  </div>
+  </div> -->
 
-  
-  
-  
-  <div class="show">
-    <a href="javascript:void(0)" (click)="toggleExpanded2(); scrollToHeading()">
-      {{ isExpanded || isExpandedMobile ? 'Show Less' : 'Show More' }}
-    </a>
-    
-    
-    
-    
-    
-  </div>
+
   
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group selectGumbDiv">
@@ -38,11 +24,12 @@
             'btn-outline-secondary': !isSelected,
             'selected-button': isSelected
           }"
-          (click)="addToBasket(); toggleSelected();"
+          (click)="addToBasket(); toggleSelected(); "
         >
-          {{ isSelected ? 'Selected' : 'Select' }}
+          {{radionice.button_name}}
         </button>
       </div>
     </div>
   </div>
+
 </div>

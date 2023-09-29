@@ -5,4 +5,7 @@ export interface iRadionice {
     theme: string;
     description: string;
     disabled: boolean;
+
+    selected?: boolean;
+    button_name?: string;
 }

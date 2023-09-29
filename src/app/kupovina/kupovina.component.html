@@ -5,22 +5,126 @@
         <header class="header">
           <div class="h1TextDiv">
             <h1 class="align-items-center p-5">
-              1. Pick your workshops
+              {{'pickTicket' | translate}}
             </h1>
           </div>
-          <h2 class="align-items-center p-5">
-            Please pick workshops you want to buy
-          </h2>
         </header>
       </div>
-      <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="row row-cols-1 row-cols-md-3 g-3 bezvezeMargina">
+
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top">
+          <div class="card-body">
+            <div class="text-center">
+              <h1 class="card-text"></h1>
+            </div>
+            <div>
+              <h4 class="text-center centerh3">EARLY BIRD</h4>
+              <h3 class="text-center">90 EUR</h3>
+            </div>
+
+
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group selectGumbDiv">
+              <button
+              type="button"
+              class="btn btn-sm selectGumb"
+              [ngClass]="{
+                'btn-outline-secondary': !selectedTicket,
+                'selected-button': selectedTicket
+              }"
+              (click)="odaberiTicket()"
+            >
+              {{ ticketButtonLabel }}
+            </button>
+            
+            </div>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top">
+          <div class="card-body">
+            <div class="text-center">
+              <h1 class="card-text"></h1>
+            </div>
+            <div>
+              <h4 class="text-center centerh3">REGULAR</h4>
+              <h3 class="text-center">100 EUR</h3>
+            </div>
+
+
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group selectGumbDiv">
+              <button
+              type="button"
+              class="btn btn-sm selectGumb"
+              [ngClass]="{
+                'btn-outline-secondary': !selectedTicket,
+                'selected-button': selectedTicket
+              }"
+              (click)="odaberiTicket()" disabled
+            >
+              {{ ticketButtonLabel }}
+            </button>
+            
+            </div>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top">
+          <div class="card-body">
+            <div class="text-center">
+              <h1 class="card-text"></h1>
+            </div>
+            <div>
+              <h4 class="text-center centerh3">STUDENT</h4>
+              <h3 class="text-center">100 EUR</h3>
+            </div>
+
+
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group selectGumbDiv">
+              <button
+              type="button"
+              class="btn btn-sm selectGumb"
+              [ngClass]="{
+                'btn-outline-secondary': !selectedTicket,
+                'selected-button': selectedTicket
+              }"
+              (click)="odaberiTicket()"
+            >
+              {{ ticketButtonLabel }}
+            </button>
+            
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <section class="col-12 col-md-9 section1">
+      <div class="d-flex justify-content-between align-items-center pb-2 divOdHeadera">
+        <header class="header">
+          <div class="h1TextDiv">
+            <h1 class="align-items-center p-5">
+              {{'pickTicket' | translate}}
+            </h1>
+          </div>
+        </header>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-3 bezvezeMargina">
         <div class="col colHolder" *ngFor="let item of radionica; let i = index">
           <app-shopItems [radionice]="item" [cardIndex]="i" (cardSelected)="addToBasket($event)"></app-shopItems>
         </div>
-        
-        
-        
-        
+
+
       </div>
     </section>
     <header class="header">
@@ -47,17 +151,8 @@
             </div>
             <div class="form-group">
               <label for="userMobile">{{'FormMobile' | translate}}</label>
-              <input
-                type="tel" 
-                class="form-control"
-                id="userMobile"
-                [(ngModel)]="userMobile"
-                name="userMobile"
-                #userMobileInput="ngModel" 
-                pattern="[0-9]*" 
-                minlength="9" 
-                required
-              >
+              <input type="tel" class="form-control" id="userMobile" [(ngModel)]="userMobile" name="userMobile"
+                #userMobileInput="ngModel" pattern="[0-9]*" minlength="9" required>
               <div *ngIf="userMobileInput.invalid && (userMobileInput.dirty || userMobileInput.touched)">
                 <div *ngIf="userMobileInput.errors?.['required']" style="color: red;">
                   {{'FormMobileValidation' | translate}}
@@ -86,7 +181,7 @@
             </ng-template> -->
           </form>
         </div>
-      </div> 
+      </div>
     </section>
   </div>
 </div>

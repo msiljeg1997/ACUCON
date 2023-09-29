@@ -4,6 +4,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { BusyService } from '../busy.service';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../language.service';
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -35,6 +36,8 @@ export class NavBarComponent implements OnInit {
     this.selectedLanguage = lang;
     this.translate.use(lang);
     this.languageService.setLanguage(lang);
+    window.location.reload();
+    
   }
 
     //umjetni spinner koj ide na click u navbaru --> dodatak AfterView u naslovnoj.ts => 

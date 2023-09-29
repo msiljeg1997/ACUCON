@@ -23,20 +23,6 @@
     }
   }
   
-  .circle-number {
-    width: 50px;
-    height: 50px; 
-    background-color: #007bff; 
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px; 
-    font-weight: bold;
-    position: relative;
-    top: -25px; 
-    left: 50%;
-    transform: translateX(-50%);
-  }
 
 
 .centered-form {
@@ -89,4 +75,73 @@ divOdHeadera{
 .col.colHolder.ng-star-inserted {
 
   height: auto;
+}
+
+/* CSS for btn-outline-secondary */
+.btn-outline-secondary {
+  background-color: rgb(255, 21, 0);
+  border-color: rgb(255, 21, 0);
+  color: #fff;
+}
+
+/* CSS for selected-button */
+.selected-button {
+  background-color: #007bff;
+  border-color: #007bff ;
+  color: #fff;
+}
+.bezvezeMargina{
+  margin-top: 30px;
+}
+card-body{
+  min-width: 50px;
+  min-height: 100px;
+}
+
+.expanded {
+  max-height: none;
+  overflow: auto;
+}
+
+.pTextDiv {
+  max-height: 500px; /* Adjust this height as needed */
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.pTextTitula{
+ 
+
+}
+
+.show {
+  margin-bottom: 20px;
+}
+h1{
+  justify-content: center;
+}
+
+.h1TextDiv{
+  height: 200px;
+}
+@media (max-width: 768px) {
+  .card-body {
+
+    margin-bottom: 20px;
+  }
+  .pTextDiv{
+      margin-bottom: 10px;
+  }
+  .pTextTitula{
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+  }
+  .h1TextDiv{
+      height: 100px;
+  }
+}
+
+.centerh3{
+  margin-top: 65px;
 }
