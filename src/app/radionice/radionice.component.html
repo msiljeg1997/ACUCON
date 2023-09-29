@@ -1,17 +1,15 @@
-<h4>
-  {{'workshopsTitle' | translate}}</h4>
-<p-accordion>
-  <p-accordionTab *ngFor="let radionica of radionice">
+<h4>{{ 'workshopsTitle' | translate }}</h4>
+<p-accordion [activeIndex]="activeTabIndex">
+  <p-accordionTab *ngFor="let radionica of radionice; let i = index">
     <ng-template pTemplate="header">
       <div class="accordion-header acccordionHeaderText">
-        {{radionica.first_name}} {{radionica.last_name}} {{radionica.theme}}
+        {{ radionica.first_name }} {{ radionica.last_name }} {{ radionica.theme }}
       </div>
     </ng-template>
-      <div class="participant-info">
-        <h2>{{ radionica.first_name }} {{ radionica.last_name }}</h2>
-        <h3>{{ radionica.theme }}</h3>
-        <div class="text">
-          <p>{{ radionica.description }}</p>
-        </div>
-      </div>
-</p-accordionTab>
+    <div class="participant-info">
+      <h2>{{ radionica.first_name }} {{ radionica.last_name }}</h2>
+      <h3>{{ radionica.theme }}</h3>
+      <p>{{ radionica.description }}</p>
+    </div>
+  </p-accordionTab>
+</p-accordion>

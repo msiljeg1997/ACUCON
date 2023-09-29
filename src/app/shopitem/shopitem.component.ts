@@ -6,6 +6,7 @@ import { Renderer2 } from '@angular/core';
 import { AnimationBuilder, AnimationPlayer, AnimationMetadata, style, animate, trigger, transition, useAnimation, keyframes } from '@angular/animations';
 import { iPredavaci } from '../models/predavaci';
 import { StorageService } from '../storage.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 export function animateScroll(options: any): AnimationMetadata[] {
   return [
@@ -76,7 +77,25 @@ export class ShopitemComponent {
   this.storageService.getButtonTranslation(this.radionice);
   }
 
-  constructor(private storageService: StorageService, private translate: TranslateService, private renderer: Renderer2, private el: ElementRef, private predavaciService: APIServis) { }
+  constructor(
+    private storageService: StorageService,
+    private translate: TranslateService,
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private predavaciService: APIServis,
+    private router: Router,
+    private route: ActivatedRoute // Add this line
+  ) {}
+
+
+  redirectToRadionice() {
+    if (this.cardIndex !== undefined) {
+      console.log(this.cardIndex);
+      this.router.navigate(['/radionice'], {
+        queryParams: { cardIndex: this.cardIndex },
+      });
+    }
+  }
 
   addToBasket() {
     const cardTitle = this.radionice?.theme;
@@ -87,7 +106,6 @@ export class ShopitemComponent {
   }
 
   toggleSelected() {
-    //this.isSelected = !this.isSelected;
     this.radionice.selected = !this.radionice.selected;
     this.storageService.getButtonTranslation(this.radionice);
 

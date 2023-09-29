@@ -9,7 +9,11 @@
             </h1>
           </div>
         </header>
+        
       </div>
+      <p class="align-items-center p-5">
+        {{'studentText' | translate}}
+      </p>
       <div class="row row-cols-1 row-cols-md-3 g-3 bezvezeMargina">
 
         <div class="card mb-4 box-shadow">
@@ -28,18 +32,13 @@
 
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group selectGumbDiv">
-              <button
-              type="button"
-              class="btn btn-sm selectGumb"
-              [ngClass]="{
-                'btn-outline-secondary': !selectedTicket,
-                'selected-button': selectedTicket
-              }"
-              (click)="odaberiTicket()"
-            >
-              {{ ticketButtonLabel }}
+              <button type="button" class="btn btn-sm selectGumb" [ngClass]="{
+                'btn-outline-secondary': !ticketSelections[0].selected,
+                'selected-button': ticketSelections[0].selected
+              }" (click)="odaberiTicket(0)">
+              {{ ticketSelections[0].selected ? ('selected' | translate) : ('select' | translate) }}
             </button>
-            
+
             </div>
           </div>
         </div>
@@ -59,18 +58,13 @@
 
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group selectGumbDiv">
-              <button
-              type="button"
-              class="btn btn-sm selectGumb"
-              [ngClass]="{
-                'btn-outline-secondary': !selectedTicket,
-                'selected-button': selectedTicket
-              }"
-              (click)="odaberiTicket()" disabled
-            >
-              {{ ticketButtonLabel }}
+              <button type="button" class="btn btn-sm selectGumb" [ngClass]="{
+                'btn-outline-secondary': !ticketSelections[1].selected,
+                'selected-button': ticketSelections[1].selected
+              }" (click)="odaberiTicket(1)">
+              {{ ticketSelections[1].selected ? ('selected' | translate) : ('select' | translate) }}
             </button>
-            
+
             </div>
           </div>
         </div>
@@ -90,18 +84,13 @@
 
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group selectGumbDiv">
-              <button
-              type="button"
-              class="btn btn-sm selectGumb"
-              [ngClass]="{
-                'btn-outline-secondary': !selectedTicket,
-                'selected-button': selectedTicket
-              }"
-              (click)="odaberiTicket()"
-            >
-              {{ ticketButtonLabel }}
-            </button>
-            
+              <button type="button" class="btn btn-sm selectGumb" [ngClass]="{
+    'btn-outline-secondary': !ticketSelections[2].selected,
+    'selected-button': ticketSelections[2].selected
+  }" (click)="odaberiTicket(2)">
+  {{ ticketSelections[2].selected ? ('selected' | translate) : ('select' | translate) }}
+</button>
+
             </div>
           </div>
         </div>
@@ -114,7 +103,7 @@
         <header class="header">
           <div class="h1TextDiv">
             <h1 class="align-items-center p-5">
-              {{'pickTicket' | translate}}
+              {{'pickWorkshop' | translate}}
             </h1>
           </div>
         </header>
@@ -130,58 +119,66 @@
     <header class="header">
       <div class="h1TextDiv">
         <h1 class="align-items-center p-5">
-          2. Please fill in the contact information
+          {{'contactText' | translate}}
         </h1>
       </div>
-      <h2 class="align-items-center p-5">
-        So we can contact you with the invoice
-      </h2>
+      <p class="align-items-center p-5">
+        {{'contactText2' | translate}}
+      </p>
     </header>
     <section>
       <div>
         <div class="centered-form">
           <form #userForm="ngForm" (ngSubmit)="sendOffer()">
             <div class="form-group">
-              <label for="userName">{{'FormName' | translate}}</label>
+              <label for="userName">{{ 'FormName' | translate }}</label>
               <input type="text" class="form-control" id="userName" [(ngModel)]="userName" name="userName">
             </div>
             <div class="form-group">
-              <label for="userSurname">{{'FormSurname' | translate}}</label>
+              <label for="userSurname">{{ 'FormSurname' | translate }}</label>
               <input type="text" class="form-control" id="userSurname" [(ngModel)]="userSurname" name="userSurname">
             </div>
             <div class="form-group">
-              <label for="userMobile">{{'FormMobile' | translate}}</label>
-              <input type="tel" class="form-control" id="userMobile" [(ngModel)]="userMobile" name="userMobile"
-                #userMobileInput="ngModel" pattern="[0-9]*" minlength="9" required>
+              <label for="userMobile">{{ 'FormMobile' | translate }}</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="userMobile"
+                [(ngModel)]="userMobile"
+                name="userMobile"
+                #userMobileInput="ngModel"
+                pattern="[0-9]*"
+                minlength="9"
+                required
+              />
               <div *ngIf="userMobileInput.invalid && (userMobileInput.dirty || userMobileInput.touched)">
                 <div *ngIf="userMobileInput.errors?.['required']" style="color: red;">
-                  {{'FormMobileValidation' | translate}}
+                  {{ 'FormMobileValidation' | translate }}
                 </div>
                 <div *ngIf="userMobileInput.errors?.['pattern']" style="color: red;">
-                  {{'FormMobileValidationOnlyDigits' | translate}}
+                  {{ 'FormMobileValidationOnlyDigits' | translate }}
                 </div>
                 <div *ngIf="userMobileInput.errors?.['minlength']" style="color: red;">
-                  {{'FormMobileValidationDigits' | translate}}
+                  {{ 'FormMobileValidationDigits' | translate }}
                 </div>
               </div>
             </div>
-            <button class="btn btn-primary" [disabled]="!userForm.valid" type="submit">
+            <div class="form-group">
+              <label for="userAddress">{{ 'FormAddress' | translate }}</label>
+              <input type="text" class="form-control" id="userAddress" [(ngModel)]="userAddress" name="userAddress">
+            </div>
+            <div class="form-group">
+              <label for="userOIB">OIB</label>
+              <input type="text" class="form-control" id="userOIB" [(ngModel)]="userOIB" name="userOIB">
+            </div>
+
+            <button class="btn btn-primary mt-3" [disabled]="!userForm.valid" type="submit">
               {{ 'SendOffer' | translate }}
             </button>
-            <!-- <ng-template #template>
-              <div class="modal-header">
-                <h4 class="modal-title pull-left">Modal</h4>
-                <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
-                  <span aria-hidden="true" class="visually-hidden">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                This is a modal.
-              </div>
-            </ng-template> -->
           </form>
         </div>
       </div>
     </section>
+    
   </div>
 </div>

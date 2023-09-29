@@ -23,9 +23,19 @@ export class KupovinaComponent implements OnInit {
   userName: string = '';
   userSurname: string = '';
   userMobile: string = '';
+  userAddress: string = '';
+  userOIB: string = '';
+  userIsStudent: string = '';
+
+
   selectedCardIndex: number = -1;
   selectedTicket?: boolean;
   ticketButtonLabel: string = ''; 
+  ticketSelections: { name: string, selected: boolean }[] = [
+    { name: 'EARLY BIRD', selected: false },
+    { name: 'REGULAR', selected: false },
+    { name: 'STUDENT', selected: false }
+  ];
   
 
 
@@ -34,10 +44,15 @@ export class KupovinaComponent implements OnInit {
     this.loadRadionice();
     this.selectedCards = this.storageService.getSelectedWorkshops();
   
-    const storedSelectedTicket = localStorage.getItem('selectedTicket');
-    this.selectedTicket = storedSelectedTicket === 'true';
-    this.translateTicketButton(this.selectedTicket);
+    const storedTicketSelections = localStorage.getItem('ticketSelections');
+    if (storedTicketSelections) {
+      this.ticketSelections = JSON.parse(storedTicketSelections);
+    }
+    this.ticketSelections.forEach((ticket, index) => {
+      this.translateTicketButton(ticket.selected);
+    });
   }
+  
 
   
 
@@ -84,34 +99,45 @@ export class KupovinaComponent implements OnInit {
     this.storageService.changedSelectedWorkshop(this.selectedCards);
   }
   sendOffer() {
+    // Create an array to store selected ticket names
+    const selectedTickets = this.ticketSelections
+      .filter(ticket => ticket.selected)
+      .map(ticket => ticket.name);
+  
     const selectedWorkshopsTranslation = this.translate.instant('Workshops');
     const nameTranslation = this.translate.instant('WorkshopNameEmail');
-    
+  
     // Create an array of workshop names based on selectedCards
     const selectedWorkshops = this.selectedCards.map((cardTitle) =>
       this.radionica.find((item) => item.theme === cardTitle)?.theme || ''
     );
-    
+  
     // Remove any empty strings from the selectedWorkshops array
     const filteredSelectedWorkshops = selectedWorkshops.filter((workshop) => workshop !== '');
-    
-    // Include selected ticket information if selectedTicket is true
+  
+    // Include selected ticket information if there are selected tickets
     let ticketInfo = '';
-    if (this.selectedTicket) {
-      ticketInfo = `Selected Ticket: Early Bird`;
+    if (selectedTickets.length > 0) {
+      ticketInfo = `Selected Ticket(s): ${selectedTickets.join(', ')}`;
     }
-    
-    const message = `Selected Workshops:\n${filteredSelectedWorkshops.join(
-      '\n'
-    )}\n${ticketInfo}\n\nName: ${this.userName} ${this.userSurname}\nMobile: ${this.userMobile}`;
-    
+  
+    // Create a new line for selected workshops and selected tickets
+    const selectedWorkshopsInfo = `Selected Workshops:\n${filteredSelectedWorkshops.join('\n')}`;
+    const selectedTicketsInfo = ticketInfo;
+  
+    // Combine all the information into the message
+    const message = `Name: ${this.userName}\nAddress: ${this.userAddress}\nOIB: ${this.userOIB}\nMobile: ${this.userMobile}\n\n${selectedWorkshopsInfo}\n${selectedTicketsInfo}`;
+  
     const subject = `${selectedWorkshopsTranslation} ${this.userName} ${this.userSurname}`;
     const mailtoLink = `mailto:test@test.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(message)}`;
     window.location.href = mailtoLink;
-    
   }
+  
+  
+  
+  
   isFormValid(): boolean {
     return !!this.userForm?.form.valid;
   }
@@ -137,14 +163,10 @@ export class KupovinaComponent implements OnInit {
   selectCard(index: number) {
     this.selectedCardIndex = index;
   }
-  odaberiTicket() {
-    this.selectedTicket = !this.selectedTicket;
+  odaberiTicket(index: number) {
+    this.ticketSelections[index].selected = !this.ticketSelections[index].selected;
   
-    // Store the selected ticket value in local storage
-    localStorage.setItem('selectedTicket', this.selectedTicket ? 'true' : 'false');
-  
-    // Update the button label based on the selectedTicket value
-    this.translateTicketButton(this.selectedTicket);
+    localStorage.setItem('ticketSelections', JSON.stringify(this.ticketSelections));
   }
 
   translateTicketButton(selected: boolean) {

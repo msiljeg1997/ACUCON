@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { APIServis } from '../api.service';
 import { iRadionice } from '../models/radionice';
 import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute } from '@angular/router';
+import { ViewChild } from '@angular/core';
+import { Accordion } from 'primeng/accordion';
+
 
 @Component({
   selector: 'app-radionice',
@@ -10,13 +14,31 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class RadioniceComponent implements OnInit {
+  @ViewChild('accordion') accordion?: Accordion;
   radionice: iRadionice[] = [];
+  activeTabIndex: number | null = null;
 
-  constructor(private radioniceService: APIServis, private translate: TranslateService ) {}
+  constructor(
+    private radioniceService: APIServis,
+    private translate: TranslateService,
+    private route: ActivatedRoute // Add this line
+  ) {}
 
   ngOnInit() {
+    this.route.queryParams.subscribe((queryParams) => {
+      if (queryParams['cardIndex'] !== undefined) {
+        const cardIndexToOpen = Number(queryParams['cardIndex']); 
+        this.openAccordionTab(cardIndexToOpen);
+      }
+    });
+  
 this.loadRadionice();
   }
+
+  openAccordionTab(cardIndexToOpen: number) {
+    this.activeTabIndex = cardIndexToOpen;
+  }
+
 
   loadRadionice() {
     this.radioniceService.getRadionice(this.translate.currentLang).subscribe(
@@ -52,6 +74,6 @@ this.loadRadionice();
   
     console.error(`${message}:`, errorMessage, error);
   }
-  //maknut vinko
+
 
 }

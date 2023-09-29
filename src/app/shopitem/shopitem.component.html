@@ -1,18 +1,10 @@
-<div class="card mb-4 box-shadow">
+<div class="card mb-4 box-shadow kartica">
   <img class="card-img-top">
   <div class="card-body">
-    <div class="h1TextDiv text-center">
+    <div class="h1TextDiv text-center" (click)="redirectToRadionice()">
       <h1 class="card-text" [@scrollAnimation]="{}" [id]="'card-text-' + cardIndex" tabindex="0">{{ radionice?.theme }}</h1>
-      <h3 class="textCenterh3">{{radionice?.first_name}} {{radionice?.last_name}} </h3>
+      <h3 class="textCenterh3" >{{radionice?.first_name}} {{radionice?.last_name}} </h3>
     </div>
-    <!-- <div class="pTextDiv"
-    [ngStyle]="{
-      'max-height': isExpandedMobile ? 'none' : (isExpanded ? 'none' : '300px'),
-      'overflow': isExpandedMobile ? 'auto' : (isExpanded ? 'auto' : 'hidden')
-    }">
-    <p class="card-body">{{ radionice?.description }}</p>
-  </div> -->
-
 
   
     <div class="d-flex justify-content-between align-items-center">
@@ -22,7 +14,7 @@
           class="btn btn-sm selectGumb"
           [ngClass]="{
             'btn-outline-secondary': !isSelected,
-            'selected-button': isSelected
+      'selected-button': isSelected
           }"
           (click)="addToBasket(); toggleSelected(); "
         >
