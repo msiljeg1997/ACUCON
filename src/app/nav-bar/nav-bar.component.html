@@ -7,11 +7,9 @@
       <span class="form-inline language-control">
         <select class="form-control form-control-sm" #selectedLang (change)="switchLang(selectedLang.value)">
           <option *ngFor="let language of translate.getLangs()" [value]="language"
-            [selected]="language === translate.currentLang">
-            
-            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-
-          </option>
+          [selected]="language === translate.currentLang">
+          {{ language }}
+        </option>
         </select>
       </span>
     </div>
