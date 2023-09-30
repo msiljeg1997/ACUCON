@@ -7,21 +7,22 @@
     </div>
 
   
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-center align-items-center">
       <div class="btn-group selectGumbDiv">
         <button
           type="button"
           class="btn btn-sm selectGumb"
           [ngClass]="{
             'btn-outline-secondary': !radionice.selected,
-      'selected-button': radionice.selected
+            'selected-button': radionice.selected
           }"
-          (click)="addToBasket(); toggleSelected(); "
+          (click)="addToBasket(); toggleSelected();"
         >
           {{radionice.button_name}}
         </button>
       </div>
     </div>
+    
   </div>
 
 </div>

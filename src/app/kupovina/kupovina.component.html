@@ -28,18 +28,22 @@
 
 
           </div>
-
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex justify-content-center align-items-center">
             <div class="btn-group selectGumbDiv">
-              <button type="button" class="btn btn-sm selectGumb" [ngClass]="{
-                'btn-outline-secondary': !ticketSelections[0].selected,
-                'selected-button': ticketSelections[0].selected
-              }" (click)="odaberiTicket(0)">
-              {{ ticketSelections[0].selected ? ('selected' | translate) : ('select' | translate) }}
-            </button>
-
+              <button
+                type="button"
+                class="btn btn-sm selectGumb"
+                [ngClass]="{
+                  'btn-outline-secondary': !ticketSelections[0].selected,
+                  'selected-button': ticketSelections[0].selected
+                }"
+                (click)="odaberiTicket(0)"
+              >
+                {{ ticketSelections[0].selected ? ('selected' | translate) : ('select' | translate) }}
+              </button>
             </div>
           </div>
+          
         </div>
 
         <div class="card mb-4 box-shadow">
@@ -57,17 +61,22 @@
 
           </div>
 
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex justify-content-center align-items-center">
             <div class="btn-group selectGumbDiv">
-              <button type="button" class="btn btn-sm selectGumb" [ngClass]="{
-    'btn-outline-secondary': !ticketSelections[2].selected,
-    'selected-button': ticketSelections[2].selected
-  }" (click)="odaberiTicket(2)">
-  {{ ticketSelections[2].selected ? ('selected' | translate) : ('select' | translate) }}
-</button>
-
+              <button
+                type="button"
+                class="btn btn-sm selectGumb"
+                [ngClass]="{
+                  'btn-outline-secondary': !ticketSelections[2].selected,
+                  'selected-button': ticketSelections[2].selected
+                }"
+                (click)="odaberiTicket(2)"
+              >
+                {{ ticketSelections[2].selected ? ('selected' | translate) : ('select' | translate) }}
+              </button>
             </div>
           </div>
+          
         </div>
 
       </div>
