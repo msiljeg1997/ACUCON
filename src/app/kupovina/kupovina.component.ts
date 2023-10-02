@@ -39,7 +39,7 @@ export class KupovinaComponent implements OnInit {
     private radioniceService: APIServis,
     private translate: TranslateService,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // Load data and initialize component
@@ -57,8 +57,8 @@ export class KupovinaComponent implements OnInit {
       this.translateTicketButton(ticket.selected);
     });
 
-    
-    
+
+
   }
 
   // Helper method to set selected radionice based on selectedCards
@@ -184,5 +184,17 @@ export class KupovinaComponent implements OnInit {
         this.ticketButtonLabel = res;
       });
     }
+  }
+  //picture changing by language
+  getImagePath(): string {
+
+    const currentLang = this.translate.currentLang;
+
+    const imagePaths: { [key: string]: string } = {
+      en: 'assets/ACU.jpg',
+      hr: 'assets/ACUHRV.jpg'
+    };
+
+    return imagePaths[currentLang] || 'assets/ACU.jpg';
   }
 }
