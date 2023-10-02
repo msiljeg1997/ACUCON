@@ -95,6 +95,7 @@
       <div class="row row-cols-1 row-cols-md-3 g-3 bezvezeMargina">
         <div class="col colHolder" *ngFor="let item of radionica; let i = index">
           <app-shopItems [radionice]="item" [cardIndex]="i" (cardSelected)="addToBasket($event)"></app-shopItems>
+          
         </div>
 
 
@@ -174,13 +175,14 @@
                 </div>
               </div>
             </div>
-            
-
-            <button class="btn btn-primary mt-3" [disabled]="!userForm.valid" type="submit">
+            <button class="btn btn-primary mt-3 gumbSend" [disabled]="!userForm.valid" type="submit">
               {{ 'SendOffer' | translate }}
             </button>
           </form>
         </div>
+      </div>
+      <div class="image-container">
+        <img src="/assets/ACU.jpg" alt="Your Image" />
       </div>
     </section>
     

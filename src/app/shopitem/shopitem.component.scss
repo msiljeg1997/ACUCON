@@ -1,14 +1,14 @@
 /* CSS for btn-outline-secondary */
 .selected-button {
-  background-color: rgb(255, 21, 0);
-  border-color: rgb(255, 21, 0);
-  color: #fff;
+  background-color: rgb(0, 255, 64);
+  border-color:rgb(0, 255, 64);
+  color: #242323db;
 }
 
 /* CSS for selected-button */
 .btn-outline-secondary {
-  background-color: #007bff;
-  border-color: #007bff ;
+  background-color: #ff0400;
+  border-color: #ff0400;
   color: #fff;
 }
   .card-text{
@@ -25,7 +25,7 @@
   }
   
   .pTextDiv {
-    max-height: 500px; /* Adjust this height as needed */
+    max-height: 900px; 
     overflow: hidden;
     margin-bottom: 20px;
   }
@@ -52,6 +52,7 @@
     .card-body {
 
       margin-bottom: 20px;
+      padding: 0;
     }
     .pTextDiv{
         margin-bottom: 10px;
@@ -62,19 +63,20 @@
   
     }
     .h1TextDiv{
-        height: 100px;
+        height: 200px;
     }
 
   }
 
 
   .card-body {
-    background-color: #35faed47;
+    background-color: #fff;
     transition: background-color 0.3s; /* Add smooth transition for the background-color */
   }
   
+  /* Styles to apply when hovering over the card */
   .card-body:hover {
-    background-color: #35faed; /* Change to a different color on hover */
+    background-color: #007bd96c; /* Change to a different color on hover */
   }
 
   .selectGumb{
