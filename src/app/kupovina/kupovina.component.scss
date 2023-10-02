@@ -38,7 +38,8 @@
     max-width: calc(100% - 600px); 
   }
   .image-container {
-    max-width: 600px; /* Set the maximum width for the image container */
+    max-width: 600px; 
+    padding-top: 12.5px;
   }
   .image-container img {
     width: 100%; 
