@@ -30,7 +30,7 @@
     "doPopust":"*Until 10.31.2023",
     "contactText": "Please fill in the contact information",
     "contactText2": "*Our team will contact you as soon as posible",
-    "studentText":"*Student tickets can be purchased with a proof of college enrollment.",
+    "studentText":"*Student tickets can be purchased with a proof of college enrollment",
     "FormOIBValidationDigits":"OIB must contain minimum of 11 digits",
     "FormOIBValidationOnlyDigits":"OIB should only contain digits",
     "discount":"discount",
