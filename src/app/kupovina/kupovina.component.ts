@@ -135,7 +135,7 @@ export class KupovinaComponent implements OnInit {
     const message = `Name: ${this.userName}\nAddress: ${this.userAddress}\nOIB: ${this.userOIB}\nMobile: ${this.userMobile}\n\n${selectedWorkshopsInfo}\n${selectedTicketsInfo}`;
 
     const subject = `${selectedWorkshopsTranslation} ${this.userName} ${this.userSurname}`;
-    const mailtoLink = `mailto:test@test.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+    const mailtoLink = `mailto:kongres@wih.hr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
     window.location.href = mailtoLink;
   }
 
