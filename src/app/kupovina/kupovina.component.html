@@ -152,7 +152,7 @@
               <label for="userAddress">{{ 'FormAddress' | translate }}</label>
               <input type="text" class="form-control" id="userAddress" [(ngModel)]="userAddress" name="userAddress">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="userOIB">{{ 'FormOIB' | translate }}</label>
               <input
                 type="text"
@@ -174,7 +174,7 @@
                   {{ 'FormOIBValidationDigits' | translate }}
                 </div>
               </div>
-            </div>
+            </div> -->
             <button class="btn btn-primary mt-3 gumbSend" [disabled]="!userForm.valid" type="submit">
               {{ 'SendOffer' | translate }}
             </button>

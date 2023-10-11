@@ -24,7 +24,6 @@ export class KupovinaComponent implements OnInit {
   userAddress: string = '';
   userOIB: string = '';
   userIsStudent: string = '';
-
   selectedCardIndex: number = -1;
   selectedTicket?: boolean;
   ticketButtonLabel: string = '';
@@ -56,9 +55,6 @@ export class KupovinaComponent implements OnInit {
     this.ticketSelections.forEach((ticket, index) => {
       this.translateTicketButton(ticket.selected);
     });
-
-
-
   }
 
   // Helper method to set selected radionice based on selectedCards
