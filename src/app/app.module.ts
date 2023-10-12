@@ -21,6 +21,9 @@ import { KupovinaComponent } from './kupovina/kupovina.component';
 import { FormsModule } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { SmjestajComponent } from './smjestaj/smjestaj.component';
+import { OrganizationsComponent } from './organizations/organizations.component';
+import { ZnanstvenoStrucniOdborComponent } from './znanstveno-strucni-odbor/znanstveno-strucni-odbor.component';
+import { OrganizacijskiOdborComponent } from './organizacijski-odbor/organizacijski-odbor.component';
 
 
 
@@ -38,7 +41,10 @@ import { SmjestajComponent } from './smjestaj/smjestaj.component';
     OkonferencijComponent,
     ShopitemComponent,
     KupovinaComponent,
-    SmjestajComponent
+    SmjestajComponent,
+    OrganizationsComponent,
+    ZnanstvenoStrucniOdborComponent,
+    OrganizacijskiOdborComponent
     
 
 

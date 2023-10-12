@@ -37,8 +37,15 @@
 }
 
 a {
-  color: whitesmoke;
+  color: rgba(245, 245, 245, 0.79);
   font-weight: 600;
+}
+a:hover {
+  color: rgb(245, 245, 245);
+  font-weight: 600;
+}
+a:active {
+  color: rgb(0, 255, 81) !important;
 }
 
 .navbar-toggler {
@@ -49,6 +56,8 @@ a {
 .navbar-nav .nav-item {
   margin-right: 15px;
   display: inline-block;
+  font-size: small;
+  
 }
 
 .collapse.navbar-collapse {

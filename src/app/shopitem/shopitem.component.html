@@ -3,28 +3,24 @@
   <div class="card-body">
     <div class="h1TextDiv text-center" (click)="redirectToRadionice()">
       <h4 class="card-text" [@scrollAnimation]="{}" [id]="'card-text-' + cardIndex" tabindex="0">{{ radionice?.theme }}</h4>
-      <h3 class="textCenterh3" >{{radionice?.first_name}} {{radionice?.last_name}} </h3>
-      <h3>100 EUR</h3>
-
     </div>
-
-  
+    <div class="centarIme">
+      <h3>{{radionice?.first_name}} {{radionice?.last_name}} </h3>
+    </div>
+    <div class="StoEvra">
+      <h3>100 EUR</h3>
+    </div>
     <div class="d-flex justify-content-center align-items-center">
       <div class="btn-group selectGumbDiv">
-        <button
-          type="button"
-          class="btn btn-sm selectGumb"
-          [ngClass]="{
+        <button type="button" class="btn btn-sm selectGumb" [ngClass]="{
             'btn-outline-secondary': !radionice.selected,
             'selected-button': radionice.selected
-          }"
-          (click)="addToBasket(); toggleSelected();"
-        >
+          }" (click)="addToBasket(); toggleSelected();">
           {{radionice.button_name}}
         </button>
       </div>
     </div>
-    
+
   </div>
 
 </div>

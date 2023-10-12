@@ -6,6 +6,9 @@ import { NaslovnaComponent } from './naslovna/naslovna.component';
 import { OkonferencijComponent } from './okonferencij/okonferencij.component';
 import { KupovinaComponent } from './kupovina/kupovina.component';
 import { SmjestajComponent } from './smjestaj/smjestaj.component';
+import { OrganizationsComponent } from './organizations/organizations.component';
+import { ZnanstvenoStrucniOdborComponent } from './znanstveno-strucni-odbor/znanstveno-strucni-odbor.component';
+import { OrganizacijskiOdborComponent } from './organizacijski-odbor/organizacijski-odbor.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/naslovna', pathMatch: 'full' }, 
@@ -15,6 +18,9 @@ const routes: Routes = [
   { path: 'about', component: OkonferencijComponent },
   { path: 'shop', component: KupovinaComponent },
   { path: 'smjestaj', component: SmjestajComponent },
+  { path: 'organizacije', component: OrganizationsComponent },
+  { path: 'organizacijski_odbor', component: OrganizacijskiOdborComponent },
+  { path: 'znanstveni_odbor', component: ZnanstvenoStrucniOdborComponent },
 ];
 
 @NgModule({
