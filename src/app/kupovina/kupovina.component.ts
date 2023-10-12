@@ -128,7 +128,7 @@ export class KupovinaComponent implements OnInit {
     const selectedTicketsInfo = ticketInfo;
 
     // Combine all the information into the message
-    const message = `Name: ${this.userName}\nAddress: ${this.userAddress}\nOIB: ${this.userOIB}\nMobile: ${this.userMobile}\n\n${selectedWorkshopsInfo}\n${selectedTicketsInfo}`;
+    const message = `Name: ${this.userName}\nAddress: ${this.userAddress}\nMobile: ${this.userMobile}\n\n${selectedWorkshopsInfo}\n${selectedTicketsInfo}`;
 
     const subject = `${selectedWorkshopsTranslation} ${this.userName} ${this.userSurname}`;
     const mailtoLink = `mailto:kongres@wih.hr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
