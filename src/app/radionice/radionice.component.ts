@@ -21,7 +21,7 @@ export class RadioniceComponent implements OnInit {
   constructor(
     private radioniceService: APIServis,
     private translate: TranslateService,
-    private route: ActivatedRoute // Add this line
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
