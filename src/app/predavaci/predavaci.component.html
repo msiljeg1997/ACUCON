@@ -1,26 +1,40 @@
 <h4>{{ 'lecturersTItle' | translate }}</h4>
 <div class="akordionSirina text-center">
   <p-accordion class="akordionSirina text-center">
-    <p-accordionTab *ngFor="let participant of participants">
-      <ng-template pTemplate="header">
-        <div class="accordion-header acccordionHeaderText">
-          {{ participant.title }} {{ participant.first_name }} {{ participant.last_name }} - {{ participant.theme }}
-        </div>
-      </ng-template>
-      <div id="container p-accordion-content" class="text-center"> 
-        <div id="floated" class="imageContainer"> <img [src]="getImageUrl(participant.photo_name)"></div>
-        <div class="textParticipant">
-          <div class="nasloviText">
-            <h2>{{ participant.title }} {{ participant.first_name }} {{ participant.last_name }}</h2>
-            <h3><span class="tema nasloviText">{{ participant.theme }}</span></h3>
+    <ng-container *ngIf="participants.length > 0; else noParticipants">
+      <p-accordionTab *ngFor="let participant of participants">
+        <ng-template pTemplate="header">
+          <div class="accordion-header acccordionHeaderText">
+            {{ participant.title }} {{ participant.first_name }} {{ participant.last_name }} - {{ participant.theme }}
           </div>
-          <div class="nasloviText text">
-            <p class="textParticipant1">{{ participant.text1 }}</p>
-            <p class="textParticipant2">{{ participant.text2 }}</p>
-            <p class="textParticipant3">{{ participant.text3 }}</p>
+        </ng-template>
+        <div class="accordion-content text-center"> 
+          <div class="floated-image imageContainer" *ngIf="participant.photo_name; else defaultImage">
+            <img [src]="getImageUrl(participant.photo_name)">
+          </div>
+          <ng-template #defaultImage>
+            <div class="imageContainer">
+              <img src="path/to/default/image.jpg" alt="Default Image">
+            </div>
+          </ng-template>
+          <div class="textParticipant">
+            <div class="nasloviText">
+              <h2>{{ participant.title }} {{ participant.first_name }} {{ participant.last_name }}</h2>
+              <h3><span class="tema nasloviText">{{ participant.theme }}</span></h3>
+            </div>
+            <div class="nasloviText text">
+              <p class="textParticipant1">{{ participant.text1 }}</p>
+              <p class="textParticipant2">{{ participant.text2 }}</p>
+              <p class="textParticipant3">{{ participant.text3 }}</p>
+            </div>
           </div>
         </div>
+      </p-accordionTab>
+    </ng-container>
+    <ng-template #noParticipants>
+      <div class="text-center">
+        <p>No participants to display.</p>
       </div>
-    </p-accordionTab>
+    </ng-template>
   </p-accordion>
 </div>
