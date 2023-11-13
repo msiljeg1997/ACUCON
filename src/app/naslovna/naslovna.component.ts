@@ -23,8 +23,20 @@ export class NaslovnaComponent implements AfterViewInit {
     const currentLang = this.translate.currentLang;
     
     const imagePaths: { [key: string]: string } = {
-      en: 'assets/ACU.jpg',
-      hr: 'assets/ACUHRV.jpg'
+      en: 'assets/acunova1engp.png',
+      hr: 'assets/acunova1hrvp.png'
+    };
+
+    return imagePaths[currentLang] || 'assets/ACU.jpg'; 
+  }
+
+  getImagePath2(): string {
+
+    const currentLang = this.translate.currentLang;
+    
+    const imagePaths: { [key: string]: string } = {
+      en: 'assets/acunova2engp.png',
+      hr: 'assets/acunova2hrvp.png'
     };
 
     return imagePaths[currentLang] || 'assets/ACU.jpg'; 
