@@ -78,3 +78,15 @@ a:active {
   width: 100px;
 }
 
+.navbar-nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Style for the dropdown items */
+.dropdown-menu a {
+  color: rgba(54, 46, 46, 0.79); /* Adjust color as needed */
+}
+
+.dropdown-menu a:hover {
+  background-color: #007ad9; /* Adjust background color on hover */
+}

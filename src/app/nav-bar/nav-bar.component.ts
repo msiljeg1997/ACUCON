@@ -16,7 +16,7 @@ export class NavBarComponent implements OnInit {
   isNavbarCollapsed = true;
   isNavbarHidden = false;
   selectedLanguage: string = 'en'; 
-
+  showDropdown: boolean = false;
 
 
 
@@ -38,6 +38,10 @@ export class NavBarComponent implements OnInit {
     this.languageService.setLanguage(lang);
     window.location.reload();
     
+  }
+
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
   }
 
     //umjetni spinner koj ide na click u navbaru --> dodatak AfterView u naslovnoj.ts => 
