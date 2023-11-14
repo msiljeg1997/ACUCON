@@ -12,11 +12,10 @@ export class AppComponent  {
 
 
   constructor(
-    public translate: TranslateService,
-
-  ) {
+    public translate: TranslateService, jezik: LanguageService) {
+      
+      translate.setDefaultLang('en');
     translate.addLangs(['en', 'hr']);
-    translate.setDefaultLang('en');
   }
 
 
