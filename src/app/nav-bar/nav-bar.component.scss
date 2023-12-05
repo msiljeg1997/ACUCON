@@ -13,6 +13,9 @@ a:active {
   color: rgb(0, 255, 81) !important;
 }
 
+.shopIkona{
+  margin-right: 10px;
+}
 
 .navbar-nav .dropdown:hover .dropdown-menu {
   display: block;
@@ -25,4 +28,11 @@ a:active {
 
 .dropdown-menu a:hover {
   background-color: #007ad9; /* Adjust background color on hover */
+}
+
+
+@media only screen and (max-width: 767px) {
+  .dd2 {
+    margin-left: 10px;
+  }
 }

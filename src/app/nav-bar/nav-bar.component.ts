@@ -27,6 +27,16 @@ export class NavBarComponent implements OnInit {
       this.translate.use(storedLanguage);
     }
   }
+  
+  getPdfLink(): string {
+    const currentLanguage = this.languageService.getLanguage();
+    if (currentLanguage === 'en') {
+      return 'assets/Program.pdf';
+    } else if (currentLanguage === 'hr') {
+      return 'assets/Raspored predavanja(1).pdf';
+    }
+    return 'assets/Program.pdf';
+  }
 
   switchLang(lang: string) {
     this.selectedLanguage = lang;

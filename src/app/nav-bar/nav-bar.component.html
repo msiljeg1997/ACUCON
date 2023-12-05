@@ -11,15 +11,11 @@
       <ul class="navbar-nav mx-auto">
         <!-- Regular Nav Items -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="/naslovna" routerLinkActive="active" (click)="closeNavbar(); showSpinnerAndNavigate()">HOMEPAGE</a>
+          <a class="nav-link" routerLink="/naslovna" routerLinkActive="active" (click)="closeNavbar(); showSpinnerAndNavigate()">{{'homepage' | translate}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/about" routerLinkActive="active" (click)=closeNavbar();>{{ 'about' | translate }}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/shop" routerLinkActive="active" (click)=closeNavbar();
-          style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{'shop' | translate}}</a>
-        </li>
+
           <!-- Dropdown  -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProgram" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,28 +23,45 @@
           </a>
             <!-- Dropdown nav items  -->
           <div class="dropdown-menu" aria-labelledby="navbarDropdownProgram">
-            <a class="dropdown-item" routerLink="/predavaci" (click)=closeNavbar();>{{ 'lecturers' | translate }}</a>
-            <a class="dropdown-item" routerLink="/radionice" (click)=closeNavbar();>{{ 'workshops' | translate }}</a>
-            <a class="dropdown-item" routerLink="/organizacije" (click)=closeNavbar();>{{ 'Organizacije' | translate }}</a>
+            <a class="dropdown-item" [href]="getPdfLink()" download (click)=closeNavbar(); style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{ 'raspored' | translate }}</a>
+            <a class="dropdown-item" routerLink="/predavaci" (click)=closeNavbar(); style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{ 'lecturers' | translate }}</a>
+            <a class="dropdown-item" routerLink="/radionice" (click)=closeNavbar(); style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{ 'workshops' | translate }}</a>
           </div>
         </li>
+
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProgram" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+            {{'odbori' | translate}}
+          </a>
+            <!-- Dropdown nav items  -->
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownProgram">
+            <a class="nav-link dd2" routerLink="/organizacijski_odbor" routerLinkActive="active" (click)=closeNavbar();
+            style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{'OrganizacijskiOdbor' | translate}}</a>
+            <a class="nav-link dd2" routerLink="/znanstveni_odbor" routerLinkActive="active" (click)=closeNavbar();
+            style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{'ZanenstveniOdbor' | translate}}</a>
+          </div>
+        </li>
+
+
+
+        
         <li class="nav-item">
           <a class="nav-link" routerLink="/smjestaj" routerLinkActive="active" (click)=closeNavbar();
             style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{'Accommodation' | translate}}</a>
         </li>
-       
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/organizacijski_odbor" routerLinkActive="active" (click)=closeNavbar();
-            style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{'OrganizacijskiOdbor' | translate}}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/znanstveni_odbor" routerLinkActive="active" (click)=closeNavbar();
-            style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{'ZanenstveniOdbor' | translate}}</a>
-        </li>
+      
+        
        
         <!-- ... More items if needed ... -->
       </ul>
     </div>
+
+      <a class="shopIkona" routerLink="/shop" routerLinkActive="active" (click)="closeNavbar()">
+        <i class="fas fa-shopping-cart fa-2x" style="color: #fbfcff; margin-right: 5px;"></i>
+      </a>
+
 
        <!-- Language Selector -->
     <span class="form-inline language-control">

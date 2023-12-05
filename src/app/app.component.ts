@@ -15,7 +15,7 @@ export class AppComponent  {
     public translate: TranslateService, jezik: LanguageService) {
       
       translate.setDefaultLang('en');
-    translate.addLangs(['en', 'hr']);
+      translate.addLangs(['en', 'hr']);
   }
 
 
