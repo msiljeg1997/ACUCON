@@ -27,7 +27,7 @@ export class NaslovnaComponent implements AfterViewInit {
       hr: 'assets/acunova1hrvp.png'
     };
 
-    return imagePaths[currentLang] || 'assets/ACU.jpg'; 
+    return imagePaths[currentLang] || 'assets/acunova1engp.png'; 
   }
 
   getImagePath2(): string {
@@ -39,6 +39,6 @@ export class NaslovnaComponent implements AfterViewInit {
       hr: 'assets/acunova2hrvp.png'
     };
 
-    return imagePaths[currentLang] || 'assets/ACU.jpg'; 
+    return imagePaths[currentLang] || 'assets/acunova1engp.png'; 
   }
 }
