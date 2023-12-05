@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { iPredavaci } from './models/predavaci';
+import { LanguageService } from './language.service';
 
 
 @Injectable({
@@ -12,15 +13,30 @@ export class APIServis {
   private apiUrlRadionice = 'https://www.wih.hr/beauty/public/api/get_kongres_radionice';
 
 
-  constructor(private http: HttpClient) { }
 
 
+  constructor(private http: HttpClient, private languageService: LanguageService) { }
 
+
+  IfIs(): string {
+    const currentLanguage = this.languageService.getLanguage();
+    if (currentLanguage === 'en') {
+      return 'assets/Program.pdf';
+    } else if (currentLanguage === 'hr') {
+      return 'assets/Raspored predavanja(1).pdf';
+    }
+    return 'assets/Program.pdf';
+  }
+ 
 
   getPredavaci($language : string): Observable<iPredavaci[]> {
-    return this.http.get<iPredavaci[]>(this.apiUrlPredavaci );
+    const apiUrl = this.apiUrlPredavaci + ($language === 'hr' ? '/HR' : '/EN');
+    return this.http.get<iPredavaci[]>(apiUrl);
   }
+
+
   getRadionice($language: string): Observable<iPredavaci[]> {
+    const apiUrl = this.apiUrlRadionice + ($language === 'hr' ? '/HR' : '/EN');
     return this.http.get<iPredavaci[]>(this.apiUrlRadionice );
   }
 }
