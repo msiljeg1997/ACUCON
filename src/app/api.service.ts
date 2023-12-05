@@ -18,17 +18,6 @@ export class APIServis {
   constructor(private http: HttpClient, private languageService: LanguageService) { }
 
 
-  IfIs(): string {
-    const currentLanguage = this.languageService.getLanguage();
-    if (currentLanguage === 'en') {
-      return 'assets/Program.pdf';
-    } else if (currentLanguage === 'hr') {
-      return 'assets/Raspored predavanja(1).pdf';
-    }
-    return 'assets/Program.pdf';
-  }
- 
-
   getPredavaci($language : string): Observable<iPredavaci[]> {
     const apiUrl = this.apiUrlPredavaci + ($language === 'hr' ? '/HR' : '/EN');
     return this.http.get<iPredavaci[]>(apiUrl);
@@ -37,6 +26,6 @@ export class APIServis {
 
   getRadionice($language: string): Observable<iPredavaci[]> {
     const apiUrl = this.apiUrlRadionice + ($language === 'hr' ? '/HR' : '/EN');
-    return this.http.get<iPredavaci[]>(this.apiUrlRadionice );
+    return this.http.get<iPredavaci[]>(apiUrl);
   }
 }
