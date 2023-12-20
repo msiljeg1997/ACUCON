@@ -23,8 +23,8 @@ export class NaslovnaComponent implements AfterViewInit {
     const currentLang = this.translate.currentLang;
     
     const imagePaths: { [key: string]: string } = {
-      en: 'assets/acunova1engp.png',
-      hr: 'assets/acunova1hrvp.png'
+      en: 'assets/acucENG1.png',
+      hr: 'assets/acucHRV1.png'
     };
 
     return imagePaths[currentLang] || 'assets/acunova1engp.png'; 
@@ -35,8 +35,8 @@ export class NaslovnaComponent implements AfterViewInit {
     const currentLang = this.translate.currentLang;
     
     const imagePaths: { [key: string]: string } = {
-      en: 'assets/acunova2engp.png',
-      hr: 'assets/acunova2hrvp.png'
+      en: 'assets/acucENG2.png',
+      hr: 'assets/acucHRV2.png'
     };
 
     return imagePaths[currentLang] || 'assets/acunova1engp.png'; 
