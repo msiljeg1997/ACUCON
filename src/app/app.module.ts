@@ -24,6 +24,7 @@ import { SmjestajComponent } from './smjestaj/smjestaj.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
 import { ZnanstvenoStrucniOdborComponent } from './znanstveno-strucni-odbor/znanstveno-strucni-odbor.component';
 import { OrganizacijskiOdborComponent } from './organizacijski-odbor/organizacijski-odbor.component';
+import { PapperComponent } from './papper/papper.component';
 
 
 
@@ -44,7 +45,8 @@ import { OrganizacijskiOdborComponent } from './organizacijski-odbor/organizacij
     SmjestajComponent,
     OrganizationsComponent,
     ZnanstvenoStrucniOdborComponent,
-    OrganizacijskiOdborComponent
+    OrganizacijskiOdborComponent,
+    PapperComponent
     
 
 

@@ -52,6 +52,11 @@
     "Francuzi":"Nacionalni Francuski sindikat medicinskih akupunkturologa",
     "Crnogorci":"Udruženje Akupunkturologa Crne Gore",
     "raspored":"RESPORED",
-    "organizations": "ORGNIZACIJE"
+    "organizations": "ORGNIZACIJE",
+    "papper": "PREDAJ RAD",
+    "DOKUMENT":"DOKUMENT",
+    "papperText1":"Preuzmite i ispunite ovaj ",
+    "papperText2":" i pošaljite ga na",
+    "papperTexth1":"PREDAJA RADA"
 
     }

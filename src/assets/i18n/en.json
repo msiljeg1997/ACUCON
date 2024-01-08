@@ -51,6 +51,12 @@
     "Francuzi":"National French Union of Medical Acupuncturists",
     "Crnogorci":"Association of Acupuncturists of Montenegro",
     "organizacijskicommiti":"Organizational committe",
-    "organizations": "ORGANIZATIONS"
+    "organizations": "ORGANIZATIONS",
+    "papper": "SUBMIT YOUR PAPER",
+    "DOKUMENT":"DOCUMENT",
+    "papperText1":"Download and fill this ",
+    "papperText2":" and send it to",
+    "papperTexth1":"PAPPER SUBMISSION"
+
 
 }
