@@ -9,7 +9,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class NaslovnaComponent implements AfterViewInit {
   showContent: boolean | undefined;
 
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('en');
+  }
 
 // simuliranai deelay radi konzistencije 
  ngAfterViewInit() {
@@ -20,7 +22,10 @@ export class NaslovnaComponent implements AfterViewInit {
 
   getImagePath(): string {
 
-    const currentLang = this.translate.currentLang;
+    let currentLang = this.translate.currentLang;
+    if (!currentLang) {
+      currentLang = 'en';
+    }
     
     const imagePaths: { [key: string]: string } = {
       en: 'assets/acucENG1.png',
@@ -32,7 +37,10 @@ export class NaslovnaComponent implements AfterViewInit {
 
   getImagePath2(): string {
 
-    const currentLang = this.translate.currentLang;
+    let currentLang = this.translate.currentLang;
+    if (!currentLang) {
+      currentLang = 'en';
+    }
     
     const imagePaths: { [key: string]: string } = {
       en: 'assets/acucENG2.png',
