@@ -18,7 +18,7 @@ export class NavBarComponent implements OnInit {
     public translate: TranslateService,
     private languageService: LanguageService,
     private busyService: BusyService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const storedLanguage = this.languageService.getLanguage();
@@ -27,13 +27,13 @@ export class NavBarComponent implements OnInit {
       this.translate.use(storedLanguage);
     }
   }
-  
+
   getPdfLink(): string {
     const currentLanguage = this.languageService.getLanguage();
     if (currentLanguage === 'en') {
-      return 'assets/Program.pdf';
+      return 'assets/Lecture schedule - final version.pdf';
     } else if (currentLanguage === 'hr') {
-      return 'assets/Raspored predavanja(1).pdf';
+      return 'assets/Raspored predavanja - finalna verzija.pdf';
     }
     return 'assets/Program.pdf';
   }
